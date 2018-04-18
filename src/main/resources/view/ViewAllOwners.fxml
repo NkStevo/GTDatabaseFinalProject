@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label fx:id="title" text="All Owners in System" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <TableView fx:id="allOwners" prefHeight="449.0" prefWidth="546.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="usernameCol" prefWidth="200.0" text="Username" />
+          <TableColumn fx:id="emailCol" prefWidth="250.0" text="Email" />
+            <TableColumn fx:id="numPropertiesCol" prefWidth="150.0" text="Number of Properties" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="150.0" text="Delete Owner Account" />
+                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="150.0" text="Back" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="8.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <ComboBox fx:id="searchMenu" prefWidth="150.0" promptText="Search by..." />
+                  <TextField fx:id="searchTerm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Search Term" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="150.0" text="Search Visitors" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="Welcome Owner" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="135.0" spacing="5.0">
+               <children>
+                  <ComboBox fx:id="searchMenu" prefWidth="135.0" promptText="Search by..." />
+                  <TextField fx:id="searchTerm" prefHeight="17.0" prefWidth="130.0" promptText="Search Term" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Search Properties" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
+               <children>
+                  <Button fx:id="manageButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Manage Property" />
+                  <Button fx:id="addPropertyButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Add Property" />
+                  <Button fx:id="ViewOtherPropButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Other Properties" />
+               </children>
+            </VBox>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
+               <children>
+                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="135.0" text="Log Out" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="7.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Your Properties:">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="ownersProperties" prefHeight="200.0" prefWidth="903.0">
+              <columns>
+                <TableColumn fx:id="nameCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="addressCol" maxWidth="200.0" minWidth="75.0" prefWidth="85.0" text="Address" />
+                  <TableColumn fx:id="cityCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="City" />
+                  <TableColumn fx:id="zipCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Zip" />
+                  <TableColumn fx:id="sizeCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Size" />
+                  <TableColumn fx:id="typeCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Type" />
+                  <TableColumn fx:id="publicCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Public" />
+                  <TableColumn fx:id="commercialCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Commercial" />
+                  <TableColumn fx:id="idCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="isValidCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="isValid" />
+                  <TableColumn fx:id="visitsCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Visits" />
+                  <TableColumn fx:id="avgRatingCol" maxWidth="200.0" minWidth="75.0" prefWidth="75.0" text="Avg. Rating" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="378.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="title" text="Welcome + ADMIN NAME">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="visitorListButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Visitors List" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="ownerListButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Owners List" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="confirmedPropButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Confirmed Properties" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="unconfirmedPropButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Unconfirmed Properties" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="ApprovedItemsButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Approved Animals and Crops" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="pendingItemsButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Pending Animals and Crops" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="logOutButton" mnemonicParsing="false" text="Log Out" />
+   </children>
+</VBox>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="New Owner Registration" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="38.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Email*:">
+                     <HBox.margin>
+                        <Insets left="71.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="emailField" prefHeight="18.0" prefWidth="222.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Username*:">
+                     <HBox.margin>
+                        <Insets left="46.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="usernameField" prefWidth="222.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Password*:">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <PasswordField fx:id="passwordField" prefWidth="222.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Confirm Password*:">
+                     <HBox.margin>
+                        <Insets left="4.0" />
+                     </HBox.margin>
+                  </Label>
+                  <PasswordField fx:id="confirmPassField" prefWidth="222.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Property Name*:">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="propNameField" prefWidth="222.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Street Address*:">
+                     <HBox.margin>
+                        <Insets left="24.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="streetField" prefWidth="222.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="City*:">
+                     <HBox.margin>
+                        <Insets left="81.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="cityField" prefHeight="0.0" prefWidth="100.0" />
+                  <Label text="Zip*:">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="zipField" prefHeight="0.0" prefWidth="100.0" />
+                  <Label text="Size (acres)*:">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="sizeField" prefHeight="0.0" prefWidth="100.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Property Type*:">
+                     <HBox.margin>
+                        <Insets left="27.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="typeMenu" prefHeight="27.0" prefWidth="110.0" promptText="Select Type" />
+                  <Label text="Animal*:">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="animalMenu" prefWidth="115.0" promptText="Select Animal" />
+                  <Label text="Crop*:">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="cropMenu" prefWidth="110.0" promptText="Select Crop" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Public?*:">
+                     <HBox.margin>
+                        <Insets left="63.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="publicMenu" prefHeight="22.0" prefWidth="99.0" promptText="Select Y/N" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Commercial?*:">
+                     <HBox.margin>
+                        <Insets left="32.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="commercialMenu" prefHeight="27.0" prefWidth="101.0" promptText="Select Y/N" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" spacing="60.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="Register Owner" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="Cancel" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
