@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.resources.sample.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -47,15 +47,15 @@
                               <Insets right="180.0" />
                            </padding>
                         </HBox>
-                        <Button fx:id="loginButton" mnemonicParsing="false" text="Login" />
+                        <Button fx:id="loginButton" mnemonicParsing="false" text="Login" onAction="#onClickLogin"/>
                      </children>
                   </VBox>
                </center>
                <bottom>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="newOwnerButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="48.0" prefWidth="104.0" text="New Owner Registration" textAlignment="CENTER" wrapText="true" />
-                        <Button fx:id="newVisitorButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="114.0" text="New Visitor Registration" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="newOwnerButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="48.0" prefWidth="104.0" text="New Owner Registration" textAlignment="CENTER" wrapText="true" onAction="#onClickNewOwnerRegistration" />
+                        <Button fx:id="newVisitorButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="114.0" text="New Visitor Registration" textAlignment="CENTER" wrapText="true" onAction="#onClickNewVisitorRegistration" />
                      </children>
                   </HBox>
                </bottom>
