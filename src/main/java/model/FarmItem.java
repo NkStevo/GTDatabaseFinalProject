@@ -15,4 +15,28 @@ public class FarmItem {
         this.isApproved = isApproved;
         this.itemType = itemType;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(boolean approved) {
+        isApproved = approved;
+    }
+
+    public FarmItemType getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(FarmItemType itemType) {
+        this.itemType = itemType;
+    }
 }
