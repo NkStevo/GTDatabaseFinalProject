@@ -8,8 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import main.java.db.UserDAOImpl;
 
+import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class UserLoginWindowController {
 
@@ -29,7 +34,22 @@ public class UserLoginWindowController {
     private Button newVisitorButton;
 
     public void onClickLogin() {
-        //SUBMIT QUERY TO DATABASE
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            UserDAOImpl userDAO = new UserDAOImpl();
+
+            String email = emailField.getText();
+            String password = (new HexBinaryAdapter()).marshal(md.digest(passwordField.getText().
+                    getBytes("UTF-8")));
+
+            userDAO.findByEmail(email);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void onClickNewOwnerRegistration() {

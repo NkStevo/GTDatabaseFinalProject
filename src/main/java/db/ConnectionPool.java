@@ -12,7 +12,7 @@ public class ConnectionPool {
 
     public ConnectionPool() {
         try {
-            ComboPooledDataSource dataSource = new ComboPooledDataSource();
+            dataSource = new ComboPooledDataSource();
 
             dataSource.setDriverClass("com.mysql.jdbc.Driver"); //loads the jdbc driver
             dataSource.setJdbcUrl("jdbc:mysql://academic-mysql.cc.gatech.edu/cs4400_team_58");
@@ -33,7 +33,7 @@ public class ConnectionPool {
         }
     }
 
-    public Connection getConnection() {
-        return connectionPool.getConnection();
+    public Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
 }

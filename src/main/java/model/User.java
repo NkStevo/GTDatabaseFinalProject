@@ -9,11 +9,13 @@ public class User {
     };
 
     private UserType userType;
+    private String password;
 
-    public User(String username, String email, UserType type) {
+    public User(String username, String email, String password, UserType type) {
         this.username = username;
         this.email = email;
-        this.userType = userType;
+        this.userType = type;
+        this.password = password;
     }
 
     public String getUsername() {
@@ -30,6 +32,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public UserType getUserType() {

@@ -24,11 +24,11 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public User findByUsername(String username) {
         PreparedStatement preStatement = null;
-
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
         ResultSet resultSet = null;
 
         try {
+            connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Username=?");
             preStatement.setString(1, username);
 
@@ -53,11 +53,16 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public User findByEmail(String email) {
         PreparedStatement preStatement = null;
-
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
         ResultSet resultSet = null;
 
         try {
+            connection = dataSource.getConnection();
+
+            if (connection == null) {
+                System.out.println("WHAT THE FUCK");
+            }
+
             preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Email=?");
             preStatement.setString(1, email);
 
@@ -82,11 +87,11 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public User findByUsernameAndPassword(String username, String password) {
         PreparedStatement preStatement = null;
-
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
         ResultSet resultSet = null;
 
         try {
+            connection = dataSource.getConnection();
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Username=? AND Password=?");
             preStatement.setString(1, username);
@@ -114,12 +119,13 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public Set<User> findAll() {
         PreparedStatement preStatement = null;
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
 
         ResultSet resultSet = null;
         Set<User> users = new HashSet<User>();
 
         try {
+            connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM USER");
 
             resultSet = preStatement.executeQuery();
@@ -144,12 +150,14 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public Set<User> findByUsernameOrEmail(String username, String email) {
         PreparedStatement preStatement = null;
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
 
         ResultSet resultSet = null;
         Set<User> users = new HashSet<User>();
 
         try {
+            connection = dataSource.getConnection();
+
             preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Username=? OR Email=?");
             preStatement.setString(1, username);
             preStatement.setString(2, email);
@@ -176,9 +184,11 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public boolean insertUser(User user) {
         PreparedStatement preStatement = null;
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
 
         try {
+            connection = dataSource.getConnection();
+
             preStatement = connection.prepareStatement("INSERT INTO User (Username, Email, Password, UserType) " +
                     "VALUES (?, ?, ?, ?)");
 
@@ -205,9 +215,10 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public boolean updateUser(User user) {
         PreparedStatement preStatement = null;
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
 
         try {
+            connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("UPDATE User SET Username=?, Email=?, Password=?, UserType=? " +
                     "WHERE Username=?");
 
@@ -235,9 +246,10 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public boolean deleteUser(User user) {
         PreparedStatement preStatement = null;
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
 
         try {
+            connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("DELETE FROM User WHERE Username=?");
 
             preStatement.setString(1, user.getUsername());
