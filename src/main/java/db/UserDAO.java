@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Set;
 
 public interface UserDAO {
-    User findByUsername();
-    User findByEmail();
-    User findByUsernameAndPassword();
+    public User findByUsername(String username);
+    public User findByEmail(String email);
+    public User findByUsernameAndPassword(String username, String password);
 
-    Set<User> findAll();
-    Set<User> findByUsernameOrEmail();
+    public Set<User> findAll();
+    public Set<User> findByUsernameOrEmail(String username, String email);
 
-    boolean insertUser(User user);
-    boolean updateUser(User user);
-    boolean deleteUser(User user);
+    public boolean insertUser(User user);
+    public boolean updateUser(User user);
+    public boolean deleteUser(User user);
 }

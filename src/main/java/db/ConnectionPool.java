@@ -33,7 +33,7 @@ public class ConnectionPool {
         }
     }
 
-    private Connection getConnection() {
+    public Connection getConnection() {
         return connectionPool.getConnection();
     }
 }
