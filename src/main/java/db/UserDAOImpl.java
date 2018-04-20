@@ -92,7 +92,6 @@ public class UserDAOImpl implements UserDAO{
             preStatement = connection.prepareStatement("SELECT * FROM User WHERE Username=? AND Password=?");
             preStatement.setString(1, username);
             preStatement.setString(2, password);
-            //(new HexBinaryAdapter()).marshal(md5.digest(password)) convert from byte[] to String
 
             resultSet = preStatement.executeQuery();
 
