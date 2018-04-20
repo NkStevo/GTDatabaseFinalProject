@@ -44,6 +44,46 @@ public class UserLoginWindowController {
                     getBytes("UTF-8")));
 
             User user = userDAO.findByEmail(email);
+            Stage stage;
+            Parent root = null;
+            System.out.println(user.getUserType());
+            if (user.getPassword().equalsIgnoreCase(password)) {
+                switch (user.getUserType()) {
+                    case ADMIN:
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("/main/resources/view/AdminDefaultView.fxml"));
+                        } catch (IOException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        stage = new Stage();
+                        stage.setTitle("Admin View");
+                        stage.setScene(new Scene(root, 750, 600));
+                        stage.show();
+                        break;
+                    case OWNER:
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("/main/resources/view/OwnerDefaultView.fxml"));
+                        } catch (IOException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        stage = new Stage();
+                        stage.setTitle("Owner View");
+                        stage.setScene(new Scene(root, 750, 600));
+                        stage.show();
+                        break;
+                    case VISITOR:
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("/main/resources/view/VisitorDefaultView.fxml"));
+                        } catch (IOException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        stage = new Stage();
+                        stage.setTitle("Visitor View");
+                        stage.setScene(new Scene(root, 750, 600));
+                        stage.show();
+                        break;
+                }
+            }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {

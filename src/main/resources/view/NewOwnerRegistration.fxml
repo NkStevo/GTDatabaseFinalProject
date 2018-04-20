@@ -145,7 +145,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </Label>
-                  <ComboBox fx:id="animalMenu" prefWidth="115.0" promptText="Select Animal" />
+                  <ComboBox fx:id="animalMenu" prefWidth="115.0" promptText="Select Animal"/>
                   <Label text="Crop*:">
                      <padding>
                         <Insets left="20.0" />
@@ -180,8 +180,8 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" spacing="60.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="Register Owner" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="Cancel" />
+            <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="Register Owner" onAction="#onRegister"/>
+            <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="Cancel" onAction="#onCancel"/>
          </children>
       </HBox>
    </bottom>
