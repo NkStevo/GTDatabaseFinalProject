@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.java.db.UserDAOImpl;
+import main.java.model.User;
 
 import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class UserLoginWindowController {
             String password = (new HexBinaryAdapter()).marshal(md.digest(passwordField.getText().
                     getBytes("UTF-8")));
 
-            userDAO.findByEmail(email);
+            User user = userDAO.findByEmail(email);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {

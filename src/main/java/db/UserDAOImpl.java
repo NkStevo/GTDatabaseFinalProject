@@ -29,7 +29,7 @@ public class UserDAOImpl implements UserDAO{
 
         try {
             connection = dataSource.getConnection();
-            preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Username=?");
+            preStatement = connection.prepareStatement("SELECT * FROM User WHERE Username=?");
             preStatement.setString(1, username);
 
             resultSet = preStatement.executeQuery();
@@ -59,7 +59,7 @@ public class UserDAOImpl implements UserDAO{
         try {
             connection = dataSource.getConnection();
 
-            preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Email=?");
+            preStatement = connection.prepareStatement("SELECT * FROM User WHERE Email=?");
             preStatement.setString(1, email);
 
             resultSet = preStatement.executeQuery();
@@ -89,7 +89,7 @@ public class UserDAOImpl implements UserDAO{
         try {
             connection = dataSource.getConnection();
             MessageDigest md5 = MessageDigest.getInstance("MD5");
-            preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Username=? AND Password=?");
+            preStatement = connection.prepareStatement("SELECT * FROM User WHERE Username=? AND Password=?");
             preStatement.setString(1, username);
             preStatement.setString(2, password);
             //(new HexBinaryAdapter()).marshal(md5.digest(password)) convert from byte[] to String
@@ -122,7 +122,7 @@ public class UserDAOImpl implements UserDAO{
 
         try {
             connection = dataSource.getConnection();
-            preStatement = connection.prepareStatement("SELECT * FROM USER");
+            preStatement = connection.prepareStatement("SELECT * FROM User");
 
             resultSet = preStatement.executeQuery();
 
@@ -154,7 +154,7 @@ public class UserDAOImpl implements UserDAO{
         try {
             connection = dataSource.getConnection();
 
-            preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Username=? OR Email=?");
+            preStatement = connection.prepareStatement("SELECT * FROM User WHERE Username=? OR Email=?");
             preStatement.setString(1, username);
             preStatement.setString(2, email);
 
