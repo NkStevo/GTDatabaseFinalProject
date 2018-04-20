@@ -59,10 +59,6 @@ public class UserDAOImpl implements UserDAO{
         try {
             connection = dataSource.getConnection();
 
-            if (connection == null) {
-                System.out.println("WHAT THE FUCK");
-            }
-
             preStatement = connection.prepareStatement("SELECT * FROM USER WHERE Email=?");
             preStatement.setString(1, email);
 
