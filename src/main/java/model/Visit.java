@@ -1,14 +1,15 @@
 package main.java.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Visit {
     private String username;
     private int propertyID;
-    private Date visitDate;
+    private Timestamp visitDate;
     private int rating;
 
-    public Visit(String username, int propertyID, Date visitDate, int rating) {
+    public Visit(String username, int propertyID, Timestamp visitDate, int rating) {
         this.username = username;
         this.propertyID = propertyID;
         this.visitDate = visitDate;
@@ -31,11 +32,11 @@ public class Visit {
         this.propertyID = propertyID;
     }
 
-    public Date getVisitDate() {
+    public Timestamp getVisitDate() {
         return visitDate;
     }
 
-    public void setVisitDate(Date visitDate) {
+    public void setVisitDate(Timestamp visitDate) {
         this.visitDate = visitDate;
     }
 

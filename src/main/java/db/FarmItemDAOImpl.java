@@ -35,6 +35,10 @@ public class FarmItemDAOImpl implements FarmItemDAO {
             return farmItemSet;
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
+            DBUtil.closeDBObject(resultSet);
         }
 
         return null;
@@ -78,11 +82,12 @@ public class FarmItemDAOImpl implements FarmItemDAO {
         try {
             connection = dataSource.getConnection();
 
-            preStatement = connection.prepareStatement("UPDATE FarmItem SET Name=?, IsApproved=?, Type=?");
+            preStatement = connection.prepareStatement("UPDATE FarmItem SET Name=?, IsApproved=?, Type=? WHERE Name=?");
 
             preStatement.setString(1, farmItem.getName());
             preStatement.setBoolean(2, farmItem.isApproved());
             preStatement.setString(3, farmItem.getItemType().name());
+            preStatement.setString(1, farmItem.getName());
 
             int flag = preStatement.executeUpdate();
 
