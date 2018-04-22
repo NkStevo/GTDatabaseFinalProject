@@ -28,7 +28,7 @@ public class HasDAOImpl implements HasDAO{
         try {
             connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM Has WHERE ItemName in " +
-                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type=ANIMAL )  WHERE PropertyID= ”?”");
+                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type=ANIMAL )  WHERE PropertyID=?");
             preStatement.setString(1, propertyID);
 
             resultSet = preStatement.executeQuery();
@@ -61,7 +61,7 @@ public class HasDAOImpl implements HasDAO{
         try {
             connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM Has WHERE ItemName in " +
-                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type!=ANIMAL )  WHERE PropertyID= ”?”");
+                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type!=ANIMAL )  WHERE PropertyID=?");
             preStatement.setString(1, propertyID);
 
             resultSet = preStatement.executeQuery();

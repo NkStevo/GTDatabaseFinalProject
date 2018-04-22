@@ -55,10 +55,10 @@ public class FarmItemDAOImpl implements FarmItemDAO {
             connection = dataSource.getConnection();
 
             if (termLike != null) {
-                preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=TRUE AND " +
+                preStatement = connection.prepareStatement("SELECT * FROM FarmItem WHERE IsApproved=TRUE AND " +
                         searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
             } else {
-                preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=TRUE " +
+                preStatement = connection.prepareStatement("SELECT * FROM FarmItem WHERE IsApproved=TRUE " +
                         "ORDER BY " + orderByColumns);
             }
 
@@ -90,7 +90,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
         try {
             connection = dataSource.getConnection();
 
-            preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=FALSE " +
+            preStatement = connection.prepareStatement("SELECT * FROM FarmItem WHERE IsApproved=FALSE " +
                         "ORDER BY " + orderByColumns);
 
 

@@ -7,6 +7,7 @@ import java.util.List;
 public interface VisitDAO {
     List<Visit> findAll();
     List<Visit> findByProperty(int propertyID);
+    List<Visit> findByUsernameOrdered(String username, String orderByColumns, String searchTerm, String termLike);
 
     boolean updateVisit(Visit visit);
     boolean insertVisit(Visit visit);

@@ -15,7 +15,7 @@ public class ConnectionPool {
             dataSource = new ComboPooledDataSource();
 
             dataSource.setDriverClass("com.mysql.jdbc.Driver"); //loads the jdbc driver
-            dataSource.setJdbcUrl("jdbc:mysql://academic-mysql.cc.gatech.edu/cs4400_team_58");
+            dataSource.setJdbcUrl("jdbc:mysql://academic-mysql.cc.gatech.edu/cs4400_team_58?zeroDateTimeBehavior=convertToNull");
             dataSource.setUser("cs4400_team_58");
             dataSource.setPassword("pqMWvchC");
         } catch(Exception e) {

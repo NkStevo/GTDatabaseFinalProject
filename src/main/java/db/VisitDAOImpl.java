@@ -1,5 +1,6 @@
 package main.java.db;
 
+import main.java.model.FarmItem;
 import main.java.model.Visit;
 
 import java.sql.PreparedStatement;
@@ -73,6 +74,43 @@ public class VisitDAOImpl implements VisitDAO {
             DBUtil.closeDBObject(preStatement);
             DBUtil.closeDBObject(connection);
         }
+        return null;
+    }
+
+    @Override
+    public List<Visit> findByUsernameOrdered(String username, String orderByColumns, String searchTerm, String termLike) {
+        PreparedStatement preStatement = null;
+        Connection connection = null;
+        ResultSet resultSet = null;
+        List<Visit> visitList = new ArrayList<>();
+
+        try {
+            connection = dataSource.getConnection();
+
+            if (termLike != null) {
+                preStatement = connection.prepareStatement("SELECT * FROM Visit WHERE Username=? AND " +
+                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+            } else {
+                preStatement = connection.prepareStatement("SELECT * FROM Visit WHERE Username=? " +
+                        "ORDER BY " + orderByColumns);
+            }
+
+            preStatement.setString(1, username);
+            resultSet = preStatement.executeQuery();
+
+            while(resultSet.next()) {
+                visitList.add(this.getVisitFromResultSet(resultSet));
+            }
+
+            return visitList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
+            DBUtil.closeDBObject(resultSet);
+        }
+
         return null;
     }
 

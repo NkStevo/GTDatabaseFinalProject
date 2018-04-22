@@ -10,7 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import main.java.model.PropertyView;
+import main.java.model.User;
 
 import java.io.IOException;
 
@@ -35,40 +38,46 @@ public class ViewOtherOwnersPropertiesController {
     private Button backButton;
 
     @FXML
-    private TableView<?> validProperties;
+    private TableView<PropertyView> validProperties;
 
     @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<PropertyView, String> nameCol;
 
     @FXML
-    private TableColumn<?, ?> addressCol;
+    private TableColumn<PropertyView, String> addressCol;
 
     @FXML
-    private TableColumn<?, ?> cityCol;
+    private TableColumn<PropertyView, String> cityCol;
 
     @FXML
-    private TableColumn<?, ?> zipCol;
+    private TableColumn<PropertyView, Integer> zipCol;
 
     @FXML
-    private TableColumn<?, ?> sizeCol;
+    private TableColumn<PropertyView, Float> sizeCol;
 
     @FXML
-    private TableColumn<?, ?> typeCol;
+    private TableColumn<PropertyView, String> typeCol;
 
     @FXML
-    private TableColumn<?, ?> publicCol;
+    private TableColumn<PropertyView, Boolean> publicCol;
 
     @FXML
-    private TableColumn<?, ?> commercialCol;
+    private TableColumn<PropertyView, Boolean> commercialCol;
 
     @FXML
-    private TableColumn<?, ?> idCol;
+    private TableColumn<PropertyView, Integer> idCol;
 
     @FXML
-    private TableColumn<?, ?> visitsCol;
+    private TableColumn<PropertyView, Integer> visitsCol;
 
     @FXML
-    private TableColumn<?, ?> avgRatingCol;
+    private TableColumn<PropertyView, Integer> avgRatingCol;
+
+    private User user;
+
+    public ViewOtherOwnersPropertiesController(User user) {
+        this.user = user;
+    }
 
     public void onBack() {
         backButton.getScene().getWindow().hide();
@@ -81,11 +90,25 @@ public class ViewOtherOwnersPropertiesController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
         Stage stage = new Stage();
         stage.setTitle("Property Details");
         stage.setScene(new Scene(root, 750, 600));
         stage.show();
     }
 
+    public void loadProperties() {
+        nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("id"));
+        addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));
+        zipCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("zipcode"));
+        sizeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Float>("size"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("propertyType"));
+        publicCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isPublic"));
+        commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommunity"));
+        idCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("id"));
+        visitsCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("visits"));
+        avgRatingCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("averageRating"));
+    }
 }
 
