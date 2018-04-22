@@ -1,16 +1,13 @@
 package main.java.db;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import main.java.model.User;
 
-import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -99,6 +96,38 @@ public class UserDAOImpl implements UserDAO{
                 User user = this.getUserFromResultSet(resultSet);
                 return user;
             }
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            //OPEN ERROR WINDOW
+        } finally {
+            DBUtil.closeDBObject(resultSet);
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
+        }
+
+        return null;
+    }
+
+    @Override
+    public Set<User> findByType(User.UserType userType) {
+        PreparedStatement preStatement = null;
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Set<User> userSet = new HashSet<>();
+
+        try {
+            connection = dataSource.getConnection();
+
+            preStatement = connection.prepareStatement("SELECT * FROM User WHERE UserType=?");
+            preStatement.setString(1, userType.name());
+
+            resultSet = preStatement.executeQuery();
+
+            while (resultSet.next()) {
+                userSet.add(this.getUserFromResultSet(resultSet));
+            }
+
+            return userSet;
         } catch (Exception e) {
             e.printStackTrace(System.err);
             //OPEN ERROR WINDOW

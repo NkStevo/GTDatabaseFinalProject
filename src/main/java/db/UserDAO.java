@@ -10,6 +10,7 @@ public interface UserDAO {
     public User findByEmail(String email);
     public User findByUsernameAndPassword(String username, String password);
 
+    public Set<User> findByType(User.UserType userType);
     public Set<User> findAll();
     public Set<User> findByUsernameOrEmail(String username, String email);
 

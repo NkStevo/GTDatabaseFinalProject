@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3676a2e8-e9ab-4fd6-8dcc-23083e607b9b" name="Default" comment="Fixed ConnectionPool bugs">
-      <change afterPath="$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java" afterDir="false" />
+    <list default="true" id="3676a2e8-e9ab-4fd6-8dcc-23083e607b9b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/VisitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/VisitDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Visit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +32,8 @@
       <file leaf-file-name="UserDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="235" column="9" lean-forward="true" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+            <state relative-caret-position="361">
+              <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#548#549#0" expanded="true" />
@@ -44,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HasDAOImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/db/HasDAOImpl.java">
+      <file leaf-file-name="UserLoginWindowController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="121" column="56" lean-forward="true" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
+            <state relative-caret-position="259">
+              <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,11 +55,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VisitDAOImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/db/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HasDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/db/HasDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="121" column="56" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VisitDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="132" column="58" selection-start-line="132" selection-start-column="58" selection-end-line="132" selection-end-column="58" />
+            <state relative-caret-position="44">
+              <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#187#188#0" expanded="true" />
@@ -145,12 +168,9 @@
         <option value="$PROJECT_DIR$/src/main/java/db/DBUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/DBUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/db/UserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/ConnectionPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/PropertyDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Has.java" />
-        <option value="$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/HasDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/HasDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/FarmItemDAO.java" />
@@ -158,6 +178,9 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Visit.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/UserDAO.java" />
       </list>
     </option>
   </component>
@@ -425,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524265758869</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Created VisitDAO and implementation and updated FarmItemDAO to fix mistakes">
+      <created>1524333773111</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1524333773111</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -440,12 +470,12 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32805908" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33755276" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.31967214" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27909482" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.075431034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -529,7 +559,8 @@
     <MESSAGE value="Fixed ConnectionPool bugs" />
     <MESSAGE value="Fixed DAO bugs" />
     <MESSAGE value="Added Has POJO and DAO as well as FarmItem DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Has POJO and DAO as well as FarmItem DAO" />
+    <MESSAGE value="Created VisitDAO and implementation and updated FarmItemDAO to fix mistakes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created VisitDAO and implementation and updated FarmItemDAO to fix mistakes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -820,16 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Has.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -851,16 +872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
           <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -909,14 +920,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="235" column="9" lean-forward="true" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+        <state relative-caret-position="44">
+          <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#577#584#0" expanded="true" />
+            <element signature="e#1326#1333#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -924,9 +937,31 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/db/HasDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
-          <caret line="121" column="56" lean-forward="true" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
+          <caret line="121" column="56" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -941,16 +976,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="132" column="58" selection-start-line="132" selection-start-column="58" selection-end-line="132" selection-end-column="58" />
+        <state relative-caret-position="180">
+          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#577#584#0" expanded="true" />
-            <element signature="e#1326#1333#0" expanded="true" />
           </folding>
         </state>
       </provider>
