@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface FarmItemDAO {
     List<FarmItem> findAll();
-    List<FarmItem> findApprovedOrPendingOrdered(String orderByColumn, boolean isAscending, boolean isApproved);
+    List<FarmItem> findApprovedOrdered(String orderByColumns, String searchTerm, String termLike);
+    List<FarmItem> findPendingOrdered(String orderByColumns);
 
     boolean insertFarmItem(FarmItem farmItem);
     boolean updateFarmItem(FarmItem farmItem);

@@ -45,7 +45,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
     }
 
     @Override
-    public List<FarmItem> findApprovedOrPendingOrdered(String orderByColumn, boolean isAscending, boolean isApproved) {
+    public List<FarmItem> findApprovedOrdered(String orderByColumns, String searchTerm, String termLike) {
         PreparedStatement preStatement = null;
         Connection connection = null;
         ResultSet resultSet = null;
@@ -53,13 +53,46 @@ public class FarmItemDAOImpl implements FarmItemDAO {
 
         try {
             connection = dataSource.getConnection();
-            String order = (isAscending) ? "ASC" : "DESC";
 
+            if (termLike != null) {
+                preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=TRUE AND " +
+                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+            } else {
+                preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=TRUE " +
+                        "ORDER BY " + orderByColumns);
+            }
 
-            preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=? ORDER BY "
-                    + orderByColumn + " " + order);
+            resultSet = preStatement.executeQuery();
 
-            preStatement.setBoolean(1, isApproved);
+            while(resultSet.next()) {
+                farmItemList.add(this.getFarmItemFromResultSet(resultSet));
+            }
+
+            return farmItemList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
+            DBUtil.closeDBObject(resultSet);
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<FarmItem> findPendingOrdered(String orderByColumns) {
+        PreparedStatement preStatement = null;
+        Connection connection = null;
+        ResultSet resultSet = null;
+        List<FarmItem> farmItemList = new ArrayList<>();
+
+        try {
+            connection = dataSource.getConnection();
+
+            preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=FALSE " +
+                        "ORDER BY " + orderByColumns);
+
 
             resultSet = preStatement.executeQuery();
 
