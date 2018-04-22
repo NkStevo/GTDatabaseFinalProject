@@ -75,7 +75,8 @@ public class PropertyDAOImpl implements PropertyDAO {
     }
 
     @Override
-    public List<Property> findByExcludedOwner(String excludedOwner) {
+    public List<Property> findByExcludedOwnerOrdered(String excludedOwner, String orderByColumn, String searchTerm, String termLike,
+                                                     boolean isAscending) {
         Connection connection = null;
         PreparedStatement preStatement = null;
         ResultSet resultSet = null;
@@ -83,7 +84,16 @@ public class PropertyDAOImpl implements PropertyDAO {
 
         try {
             connection = connectionPool.getConnection();
-            preStatement = connection.prepareStatement("SELECT * FROM Property WHERE Owner!=?");
+            String order = (isAscending) ? "ASC" : "DESC";
+
+            if (termLike != null) {
+                preStatement = connection.prepareStatement("SELECT * FROM Property WHERE Owner!=? AND " +
+                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumn + " " + order);
+            } else {
+                preStatement = connection.prepareStatement("SELECT * FROM Property WHERE Owner!=? ORDER BY " +
+                        orderByColumn + " " + order);
+            }
+
             preStatement.setString(1, excludedOwner);
 
             resultSet = preStatement.executeQuery();
@@ -164,8 +174,8 @@ public class PropertyDAOImpl implements PropertyDAO {
     }
 
     @Override
-    public List<Property> findApprovedOrUnapprovedOrdered(String orderByColumn, boolean isApproved,
-                                                          boolean isAscending) {
+    public List<Property> findUnapprovedOrdered(String orderByColumn, boolean isAscending, String searchTerm,
+                                                String termLike) {
         Connection connection = null;
         PreparedStatement preStatement = null;
         ResultSet resultSet = null;
@@ -174,10 +184,14 @@ public class PropertyDAOImpl implements PropertyDAO {
         try {
             connection = connectionPool.getConnection();
             String order = (isAscending) ? "ASC" : "DESC";
-            String approved = (isApproved) ? "IS NOT NULL" : "IS NULL";
 
-            preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy " + approved +
-                    " ORDER BY " + orderByColumn + " " + order);
+            if (termLike != null) {
+                preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy IS NULL AND " +
+                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumn + " " + order);
+            } else {
+                preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy IS NULL " +
+                        "ORDER BY " + orderByColumn + " " + order);
+            }
 
             resultSet = preStatement.executeQuery();
 
@@ -260,7 +274,7 @@ public class PropertyDAOImpl implements PropertyDAO {
             connection = connectionPool.getConnection();
             preStatement = connection.prepareStatement("INSERT INTO Property (ID, Name, Size, IsCommercial, " +
                     "IsPublic, Street, City, Zip, PropertyType, Owner, ApprovedBy) VALUES " +
-                    "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE ID=?");
+                    "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             preStatement.setInt(1, property.getId());
             preStatement.setString(2, property.getName());

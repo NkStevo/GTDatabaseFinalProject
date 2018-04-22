@@ -205,6 +205,43 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
+    public List<User> findAllUsersOfTypeOrdered(User.UserType userType, String orderByColumn, String searchTerm,
+                                                String termLike, boolean isAscending) {
+        Connection connection = null;
+        PreparedStatement preStatement = null;
+        ResultSet resultSet = null;
+        List<User> properties = new ArrayList<>();
+
+        try {
+            connection = dataSource.getConnection();
+            String order = (isAscending) ? "ASC" : "DESC";
+
+            if (termLike != null) {
+                preStatement = connection.prepareStatement("SELECT * FROM User WHERE UserType=? AND " + searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumn + " " + order);
+            } else {
+                preStatement = connection.prepareStatement("SELECT * FROM User WHERE UserType=? ORDER BY " + orderByColumn + " " + order);
+            }
+
+            preStatement.setString(1, userType.name());
+            resultSet = preStatement.executeQuery();
+
+            while(resultSet.next()) {
+                properties.add(this.getUserFromResultSet(resultSet));
+            }
+
+            return properties;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(resultSet);
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
+        }
+
+        return null;
+    }
+
+    @Override
     public boolean insertUser(User user) {
         PreparedStatement preStatement = null;
         Connection connection = null;
