@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.OwnerDefaultViewController">
    <top>
-      <Label text="Welcome Owner" BorderPane.alignment="CENTER">
+      <Label text="Welcome Owner" BorderPane.alignment="CENTER" fx:id="ownerName">
          <font>
             <Font size="38.0" />
          </font>

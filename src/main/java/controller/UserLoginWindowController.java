@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.java.db.UserDAOImpl;
 import main.java.model.User;
@@ -16,8 +17,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.acl.Owner;
 
 public class UserLoginWindowController {
+
+    public static User me;
 
     @FXML
     private TextField emailField;
@@ -48,38 +52,46 @@ public class UserLoginWindowController {
             Parent root = null;
 
             if (user.getPassword().equalsIgnoreCase(password)) {
+                me = user;
+                FXMLLoader loader;
                 switch (user.getUserType()) {
                     case ADMIN:
+                        loader = new FXMLLoader(getClass().getResource("/main/resources/view/AdminDefaultView.fxml"));
+                        stage = new Stage();
+                        stage.setTitle("Admin View");
                         try {
-                            root = FXMLLoader.load(getClass().getResource("/main/resources/view/AdminDefaultView.fxml"));
+                            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
                         } catch (IOException e) {
                             System.out.println(e.getMessage());
                         }
-                        stage = new Stage();
-                        stage.setTitle("Admin View");
-                        stage.setScene(new Scene(root, 750, 600));
+                        AdminDefaultViewController adc = loader.<AdminDefaultViewController>getController();
+                        adc.setTitle(me.getUsername());
                         stage.show();
                         break;
                     case OWNER:
+                        loader = new FXMLLoader(getClass().getResource("/main/resources/view/OwnerDefaultView.fxml"));
+                        stage = new Stage();
+                        stage.setTitle("Owner View");
                         try {
-                            root = FXMLLoader.load(getClass().getResource("/main/resources/view/OwnerDefaultView.fxml"));
+                            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
                         } catch (IOException e) {
                             System.out.println(e.getMessage());
                         }
-                        stage = new Stage();
-                        stage.setTitle("Owner View");
-                        stage.setScene(new Scene(root, 750, 600));
+                        OwnerDefaultViewController controller = loader.<OwnerDefaultViewController>getController();
+                        controller.setOwnerName("Welcome " + me.getUsername());
                         stage.show();
                         break;
                     case VISITOR:
+                        loader = new FXMLLoader(getClass().getResource("/main/resources/view/VisitorDefaultView.fxml"));
+                        stage = new Stage();
+                        stage.setTitle("Visitor View");
                         try {
-                            root = FXMLLoader.load(getClass().getResource("/main/resources/view/VisitorDefaultView.fxml"));
+                            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
                         } catch (IOException e) {
                             System.out.println(e.getMessage());
                         }
-                        stage = new Stage();
-                        stage.setTitle("Visitor View");
-                        stage.setScene(new Scene(root, 750, 600));
+                        VisitorDefaultViewController vc = loader.<VisitorDefaultViewController>getController();
+                        vc.setTitle(me.getUsername());
                         stage.show();
                         break;
                 }
@@ -101,7 +113,7 @@ public class UserLoginWindowController {
             System.out.println(e.getMessage());
         }
         Stage stage = new Stage();
-        stage.setTitle("New Owner Registration");
+        stage.setTitle("New Visitor Registration");
         stage.setScene(new Scene(root, 750, 600));
         stage.show();
     }

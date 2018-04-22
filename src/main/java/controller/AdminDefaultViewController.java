@@ -7,10 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import main.java.model.User;
 
 import java.io.IOException;
 
 public class AdminDefaultViewController {
+
+    private User me;
 
     @FXML
     private Label title;
@@ -35,6 +38,11 @@ public class AdminDefaultViewController {
 
     @FXML
     private Button logOutButton;
+
+    @FXML
+    public void setTitle(String name) {
+        title.setText("Welcome " + name);
+    }
 
     public void onClickVisitorsList() {
         Parent root = null;
