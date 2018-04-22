@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import main.java.db.*;
 
 public class ViewAllVisitorsController {
 
@@ -43,5 +44,13 @@ public class ViewAllVisitorsController {
     @FXML
     private Button searchButton;
 
+    @FXML
+    public void initialize() {
+
+    }
+
+    public void onBack() {
+        backButton.getScene().getWindow().hide();
+    }
 }
 

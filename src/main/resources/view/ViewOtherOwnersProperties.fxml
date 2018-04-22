@@ -35,8 +35,8 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
                <children>
-                  <Button fx:id="viewDetailsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Property Details" />
-                  <Button fx:id="backButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Back" />
+                  <Button fx:id="viewDetailsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Property Details" onAction="#onDetails"/>
+                  <Button fx:id="backButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Back" onAction="#onBack"/>
                </children>
                <HBox.margin>
                   <Insets bottom="7.0" />

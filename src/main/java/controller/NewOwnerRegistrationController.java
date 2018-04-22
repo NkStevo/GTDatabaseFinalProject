@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import main.java.db.UserDAOImpl;
 import main.java.model.Property;
 import main.java.model.User;
+import main.java.db.FarmItemDAOImpl;
 
 import javax.print.DocFlavor;
 import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
@@ -121,7 +122,7 @@ public class NewOwnerRegistrationController {
         if (typeMenu.getValue() == Property.PropertyType.FARM) {
 
         } else if (typeMenu.getValue() == Property.PropertyType.GARDEN) {
-            animalMenu.hide();
+
 
         } else if (typeMenu.getValue() == Property.PropertyType.ORCHARD) {
 

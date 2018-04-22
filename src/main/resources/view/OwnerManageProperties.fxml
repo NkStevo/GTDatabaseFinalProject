@@ -144,7 +144,7 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="backButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="111.0" text="Back (Don't Save)">
+                  <Button fx:id="backButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="111.0" text="Back (Don't Save)" onAction="#onBack">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>

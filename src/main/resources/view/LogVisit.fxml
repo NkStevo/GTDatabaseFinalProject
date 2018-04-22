@@ -171,8 +171,8 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
       </Rating>
-      <Button fx:id="logVisitButton" mnemonicParsing="false" prefHeight="23.0" prefWidth="84.0" text="Log Visit" />
-      <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Back">
+      <Button fx:id="logVisitButton" mnemonicParsing="false" prefHeight="23.0" prefWidth="84.0" text="Log Visit" onAction="#onLog"/>
+      <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Back" onAction="#onBack">
          <VBox.margin>
             <Insets />
          </VBox.margin></Button>

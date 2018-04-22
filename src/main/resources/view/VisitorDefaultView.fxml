@@ -32,8 +32,8 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="viewPropertyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="View Property" textAlignment="CENTER" wrapText="true" />
-                  <Button fx:id="viewVisitHistButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="View Visit History" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="viewPropertyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="View Property" textAlignment="CENTER" wrapText="true" onAction="#onProperty"/>
+                  <Button fx:id="viewVisitHistButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="View Visit History" textAlignment="CENTER" wrapText="true" onAction="#onClickHistory">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

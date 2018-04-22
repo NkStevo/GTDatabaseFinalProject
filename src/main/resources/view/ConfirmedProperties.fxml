@@ -53,7 +53,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="manageButton" minHeight="50.0" mnemonicParsing="false" prefWidth="125.0" text="Manage Property Selected" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="manageButton" minHeight="50.0" mnemonicParsing="false" prefWidth="125.0" text="Manage Property Selected" textAlignment="CENTER" wrapText="true" onAction="#onManageProperty">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -62,7 +62,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="125.0" text="Back">
+                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="125.0" text="Back" onAction="#onBack">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

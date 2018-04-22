@@ -29,5 +29,9 @@ public class VisitorHistoryController {
     @FXML
     private Button backButton;
 
+    public void onBack() {
+        backButton.getScene().getWindow().hide();
+    }
+
 }
 

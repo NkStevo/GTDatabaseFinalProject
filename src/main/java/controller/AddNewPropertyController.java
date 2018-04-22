@@ -47,4 +47,8 @@ public class AddNewPropertyController {
     @FXML
     private Button cancelButton;
 
+    public void onBack() {
+        cancelButton.getScene().getWindow().hide();
+    }
+
 }

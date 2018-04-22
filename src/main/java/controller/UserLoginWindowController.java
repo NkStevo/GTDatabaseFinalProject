@@ -46,7 +46,6 @@ public class UserLoginWindowController {
             User user = userDAO.findByEmail(email);
             Stage stage;
             Parent root = null;
-            System.out.println(user.getUserType());
             if (user.getPassword().equalsIgnoreCase(password)) {
                 switch (user.getUserType()) {
                     case ADMIN:

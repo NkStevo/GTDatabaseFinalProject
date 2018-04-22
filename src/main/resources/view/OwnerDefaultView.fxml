@@ -32,14 +32,14 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
                <children>
-                  <Button fx:id="manageButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Manage Property" />
-                  <Button fx:id="addPropertyButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Add Property" />
-                  <Button fx:id="ViewOtherPropButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Other Properties" />
+                  <Button fx:id="manageButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Manage Property" onAction="#onManageProperty"/>
+                  <Button fx:id="addPropertyButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Add Property" onAction="#onAddProperty"/>
+                  <Button fx:id="ViewOtherPropButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Other Properties" onAction="#onViewOthers"/>
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
                <children>
-                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="135.0" text="Log Out" />
+                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="135.0" text="Log Out" onAction="#onLogOut"/>
                </children>
                <HBox.margin>
                   <Insets bottom="7.0" />

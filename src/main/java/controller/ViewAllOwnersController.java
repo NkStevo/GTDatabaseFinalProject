@@ -40,5 +40,9 @@ public class ViewAllOwnersController {
     @FXML
     private Button searchButton;
 
+    public void onBack() {
+        backButton.getScene().getWindow().hide();
+    }
+
 }
 

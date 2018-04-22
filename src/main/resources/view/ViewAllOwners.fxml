@@ -38,7 +38,7 @@
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="150.0" text="Delete Owner Account" />
-                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="150.0" text="Back" />
+                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="150.0" text="Back" onAction="#onBack"/>
                </children>
                <HBox.margin>
                   <Insets bottom="8.0" />
@@ -48,7 +48,7 @@
                <children>
                   <ComboBox fx:id="searchMenu" prefWidth="150.0" promptText="Search by..." />
                   <TextField fx:id="searchTerm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Search Term" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="150.0" text="Search Visitors" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="150.0" text="Search Owners" />
                </children>
             </VBox>
          </children>

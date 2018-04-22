@@ -39,7 +39,7 @@
                <children>
                   <Button fx:id="delVisitorButton" mnemonicParsing="false" prefWidth="150.0" text="Delete Visitor Account" />
                   <Button fx:id="delHistoryButton" mnemonicParsing="false" prefWidth="150.0" text="Delete Log History" />
-                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="150.0" text="Back" />
+                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="150.0" text="Back" onAction="#onBack"/>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">

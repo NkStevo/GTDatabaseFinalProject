@@ -12,12 +12,12 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="visitorListButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Visitors List" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="ownerListButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Owners List" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="confirmedPropButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Confirmed Properties" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="unconfirmedPropButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Unconfirmed Properties" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="ApprovedItemsButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Approved Animals and Crops" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="pendingItemsButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Pending Animals and Crops" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="logOutButton" mnemonicParsing="false" text="Log Out" />
+      <Button fx:id="visitorListButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Visitors List" textAlignment="CENTER" wrapText="true" onAction="#onClickVisitorsList"/>
+      <Button fx:id="ownerListButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Owners List" textAlignment="CENTER" wrapText="true" onAction="#onClickOwnersList"/>
+      <Button fx:id="confirmedPropButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Confirmed Properties" textAlignment="CENTER" wrapText="true" onAction="#onConfirmedProperties"/>
+      <Button fx:id="unconfirmedPropButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Unconfirmed Properties" textAlignment="CENTER" wrapText="true" onAction="#onUnconfirmedProperties"/>
+      <Button fx:id="ApprovedItemsButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Approved Animals and Crops" textAlignment="CENTER" wrapText="true" onAction="#onApproved"/>
+      <Button fx:id="pendingItemsButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="View Pending Animals and Crops" textAlignment="CENTER" wrapText="true" onAction="#onPending"/>
+      <Button fx:id="logOutButton" mnemonicParsing="false" text="Log Out" onAction="#onLogout"/>
    </children>
 </VBox>

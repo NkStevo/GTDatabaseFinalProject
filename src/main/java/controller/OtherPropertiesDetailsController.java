@@ -57,5 +57,9 @@ public class OtherPropertiesDetailsController {
     @FXML
     private Button backButton;
 
+    public void onBack() {
+        backButton.getScene().getWindow().hide();
+    }
+
 }
 
