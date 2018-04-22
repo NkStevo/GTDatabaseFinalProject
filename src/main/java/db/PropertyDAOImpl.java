@@ -75,46 +75,6 @@ public class PropertyDAOImpl implements PropertyDAO {
     }
 
     @Override
-    public List<Property> findByExcludedOwnerOrdered(String excludedOwner, String orderByColumn, String searchTerm, String termLike,
-                                                     boolean isAscending) {
-        Connection connection = null;
-        PreparedStatement preStatement = null;
-        ResultSet resultSet = null;
-        List<Property> properties = new ArrayList<>();
-
-        try {
-            connection = connectionPool.getConnection();
-            String order = (isAscending) ? "ASC" : "DESC";
-
-            if (termLike != null) {
-                preStatement = connection.prepareStatement("SELECT * FROM Property WHERE Owner!=? AND " +
-                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumn + " " + order);
-            } else {
-                preStatement = connection.prepareStatement("SELECT * FROM Property WHERE Owner!=? ORDER BY " +
-                        orderByColumn + " " + order);
-            }
-
-            preStatement.setString(1, excludedOwner);
-
-            resultSet = preStatement.executeQuery();
-
-            while(resultSet.next()) {
-                properties.add(this.getPropertyFromResultSet(resultSet));
-            }
-
-            return properties;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeDBObject(resultSet);
-            DBUtil.closeDBObject(preStatement);
-            DBUtil.closeDBObject(connection);
-        }
-
-        return null;
-    }
-
-    @Override
     public List<Property> findByType(Property.PropertyType propertyType) {
         Connection connection = null;
         PreparedStatement preStatement = null;
@@ -287,7 +247,6 @@ public class PropertyDAOImpl implements PropertyDAO {
             preStatement.setString(9, property.getPropertyType().name());
             preStatement.setString(10, property.getOwnerUsername());
             preStatement.setString(11, property.getApproverUsername());
-            preStatement.setInt(12, property.getId());
 
             int flag = preStatement.executeUpdate();
 
