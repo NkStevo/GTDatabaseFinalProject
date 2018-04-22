@@ -103,7 +103,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0">
                <children>
-                  <Button fx:id="addButton" mnemonicParsing="false" prefWidth="125.0" text="Add Property" />
+                  <Button fx:id="addButton" mnemonicParsing="false" prefWidth="125.0" text="Add Property" onAction="#onAdd"/>
                   <Button fx:id="cancelButton" mnemonicParsing="false" prefWidth="125.0" text="Cancel" onAction="#onBack"/>
                </children>
             </HBox>

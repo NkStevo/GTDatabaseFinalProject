@@ -6,11 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import main.java.model.User;
 
 import java.io.IOException;
+import java.security.acl.Owner;
 
 public class OwnerDefaultViewController {
+
+    private User me;
 
     @FXML
     private Label title;
@@ -61,28 +66,33 @@ public class OwnerDefaultViewController {
     private Label animalList;
 
     @FXML
-    private Button backButton;
+    private Button logOutButton;
+
 
     public void onLogOut() {
-        backButton.getScene().getWindow().hide();
+        logOutButton.getScene().getWindow().hide();
     }
 
     @FXML
     public void initialize(){
+    }
 
-
+    @FXML
+    public void setOwnerName(String name) {
+        ownerName.setText(name);
     }
 
     public void onAddProperty() {
-        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/AddNewProperty.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Add New Property");
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/AddNewProperty.fxml"));
+            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        Stage stage = new Stage();
-        stage.setTitle("Add New Property");
-        stage.setScene(new Scene(root, 750, 600));
+        AddNewPropertyController add = loader.<AddNewPropertyController>getController();
+        add.setTitle(ownerName.getText().substring(7));
         stage.show();
     }
 

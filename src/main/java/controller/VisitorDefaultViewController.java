@@ -11,10 +11,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import main.java.model.User;
 
 import java.io.IOException;
 
 public class VisitorDefaultViewController {
+
+    private User me;
 
     @FXML
     private Label title;
@@ -73,6 +76,11 @@ public class VisitorDefaultViewController {
     @FXML
     private TableColumn<?, ?> avgRatingCol;
 
+    @FXML
+    public void setTitle(String name) {
+        title.setText("Welcome " + name);
+
+    }
     public void onBack() {
         logOutButton.getScene().getWindow().hide();
     }

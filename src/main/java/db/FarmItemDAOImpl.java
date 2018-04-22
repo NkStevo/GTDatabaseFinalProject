@@ -25,7 +25,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
 
         try {
             connection = dataSource.getConnection();
-            preStatement = connection.prepareStatement("SELECT * FROM Has");
+            preStatement = connection.prepareStatement("SELECT * FROM FarmItem");
             resultSet = preStatement.executeQuery();
 
             while(resultSet.next()) {
