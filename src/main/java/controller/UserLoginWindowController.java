@@ -79,6 +79,7 @@ public class UserLoginWindowController {
                         }
                         OwnerDefaultViewController controller = loader.<OwnerDefaultViewController>getController();
                         controller.setOwnerName("Welcome " + me.getUsername());
+                        controller.loadUser(user);
                         stage.show();
                         break;
                     case VISITOR:
