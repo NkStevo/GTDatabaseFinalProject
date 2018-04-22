@@ -19,7 +19,7 @@ public class Property {
     private PropertyType propertyType;
 
     public Property(int id, String name, float size, boolean isCommercial, boolean isPublic, String street, String city,
-                    int zipcode, String ownerUsername) {
+                    int zipcode, PropertyType propertyType, String ownerUsername, String approverUsername) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -28,8 +28,15 @@ public class Property {
         this.street = street;
         this.city = city;
         this.zipcode = zipcode;
+        this.propertyType = propertyType;
         this.ownerUsername = ownerUsername;
+        this.approverUsername = approverUsername;
+    }
 
+    public Property(int id, String name, float size, boolean isCommercial, boolean isPublic, String street, String city,
+                    int zipcode, PropertyType propertyType, String ownerUsername) {
+        this(id, name, size, isCommercial, isPublic, street, city, zipcode, propertyType, ownerUsername,
+                null);
     }
 
     public int getId() {

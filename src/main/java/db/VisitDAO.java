@@ -2,13 +2,13 @@ package main.java.db;
 
 import main.java.model.Visit;
 
-import java.util.Set;
+import java.util.List;
 
 public interface VisitDAO {
-    public Set<Visit> findAll();
-    public Set<Visit> findByProperty(int propertyID);
+    List<Visit> findAll();
+    List<Visit> findByProperty(int propertyID);
 
-    public boolean updateVisit(Visit visit);
-    public boolean insertVisit(Visit visit);
-    public boolean deleteVisit(Visit visit);
+    boolean updateVisit(Visit visit);
+    boolean insertVisit(Visit visit);
+    boolean deleteVisit(Visit visit);
 }

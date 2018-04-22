@@ -7,22 +7,24 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class VisitDAOImpl implements VisitDAO {
-    ConnectionPool dataSource;
+    private ConnectionPool dataSource;
 
     public VisitDAOImpl() {
-        dataSource = dataSource.getInstance();
+        dataSource = ConnectionPool.getInstance();
     }
 
     @Override
-    public Set<Visit> findAll() {
+    public List<Visit> findAll() {
         Connection connection = null;
         PreparedStatement preStatement = null;
         ResultSet resultSet = null;
-        Set<Visit> visitSet = new HashSet<Visit>();
+        List<Visit> visitList = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
@@ -30,36 +32,46 @@ public class VisitDAOImpl implements VisitDAO {
             resultSet = preStatement.executeQuery();
 
             while(resultSet.next()) {
-                visitSet.add(this.getVisitFromResultSet(resultSet));
+                visitList.add(this.getVisitFromResultSet(resultSet));
             }
 
-            return visitSet;
+            return visitList;
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(resultSet);
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
         }
 
         return null;
     }
 
     @Override
-    public Set<Visit> findByProperty(int propertyID) {
+    public List<Visit> findByProperty(int propertyID) {
         Connection connection = null;
         PreparedStatement preStatement = null;
         ResultSet resultSet = null;
-        Set<Visit> visitSet = new HashSet<Visit>();
+        List<Visit> visitList = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM Visit WHERE PropertyID=?");
             preStatement.setInt(1, propertyID);
 
+            resultSet = preStatement.executeQuery();
+
             while(resultSet.next()) {
-                visitSet.add(this.getVisitFromResultSet(resultSet));
+                visitList.add(this.getVisitFromResultSet(resultSet));
             }
 
-            return visitSet;
+            return visitList;
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(resultSet);
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
         }
         return null;
     }
@@ -88,6 +100,9 @@ public class VisitDAOImpl implements VisitDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
         }
 
         return false;
@@ -115,6 +130,9 @@ public class VisitDAOImpl implements VisitDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
         }
 
         return false;
@@ -139,6 +157,9 @@ public class VisitDAOImpl implements VisitDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
         }
 
         return false;

@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class HasDAOImpl implements HasDAO{
@@ -17,11 +19,11 @@ public class HasDAOImpl implements HasDAO{
     }
 
     @Override
-    public Set<Has> findAnimalsByProperty(String propertyID) {
+    public List<Has> findAnimalsByProperty(String propertyID) {
         PreparedStatement preStatement = null;
         Connection connection = null;
         ResultSet resultSet = null;
-        Set<Has> hasList = new HashSet<Has>();
+        List<Has> hasList = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
@@ -50,11 +52,11 @@ public class HasDAOImpl implements HasDAO{
     }
 
     @Override
-    public Set<Has> findCropsByProperty(String propertyID) {
+    public List<Has> findCropsByProperty(String propertyID) {
         PreparedStatement preStatement = null;
         Connection connection = null;
         ResultSet resultSet = null;
-        Set<Has> hasList = new HashSet<Has>();
+        List<Has> hasList = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();

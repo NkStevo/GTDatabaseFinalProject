@@ -6,8 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FarmItemDAOImpl implements FarmItemDAO {
     private ConnectionPool dataSource;
@@ -17,11 +17,11 @@ public class FarmItemDAOImpl implements FarmItemDAO {
     }
 
     @Override
-    public Set<FarmItem> findAll() {
+    public List<FarmItem> findAll() {
         PreparedStatement preStatement = null;
         Connection connection = null;
         ResultSet resultSet = null;
-        Set<FarmItem> farmItemSet = new HashSet<FarmItem>();
+        List<FarmItem> farmItemList = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
@@ -29,10 +29,45 @@ public class FarmItemDAOImpl implements FarmItemDAO {
             resultSet = preStatement.executeQuery();
 
             while(resultSet.next()) {
-                farmItemSet.add(this.getFarmItemFromResultSet(resultSet));
+                farmItemList.add(this.getFarmItemFromResultSet(resultSet));
             }
 
-            return farmItemSet;
+            return farmItemList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeDBObject(preStatement);
+            DBUtil.closeDBObject(connection);
+            DBUtil.closeDBObject(resultSet);
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<FarmItem> findApprovedOrPendingOrdered(String orderByColumn, boolean isAscending, boolean isApproved) {
+        PreparedStatement preStatement = null;
+        Connection connection = null;
+        ResultSet resultSet = null;
+        List<FarmItem> farmItemList = new ArrayList<>();
+
+        try {
+            connection = dataSource.getConnection();
+            String order = (isAscending) ? "ASC" : "DESC";
+
+
+            preStatement = connection.prepareStatement("SELECT * FROM Has WHERE IsApproved=? ORDER BY "
+                    + orderByColumn + " " + order);
+
+            preStatement.setBoolean(1, isApproved);
+
+            resultSet = preStatement.executeQuery();
+
+            while(resultSet.next()) {
+                farmItemList.add(this.getFarmItemFromResultSet(resultSet));
+            }
+
+            return farmItemList;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

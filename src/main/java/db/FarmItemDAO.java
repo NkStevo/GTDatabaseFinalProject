@@ -2,12 +2,13 @@ package main.java.db;
 
 import main.java.model.FarmItem;
 
-import java.util.Set;
+import java.util.List;
 
 public interface FarmItemDAO {
-    public Set<FarmItem> findAll();
+    List<FarmItem> findAll();
+    List<FarmItem> findApprovedOrPendingOrdered(String orderByColumn, boolean isAscending, boolean isApproved);
 
-    public boolean insertFarmItem(FarmItem farmItem);
-    public boolean updateFarmItem(FarmItem farmItem);
-    public boolean deleteFarmItem(FarmItem farmItem);
+    boolean insertFarmItem(FarmItem farmItem);
+    boolean updateFarmItem(FarmItem farmItem);
+    boolean deleteFarmItem(FarmItem farmItem);
 }

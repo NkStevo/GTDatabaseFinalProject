@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UserDAOImpl implements UserDAO{
@@ -32,8 +34,7 @@ public class UserDAOImpl implements UserDAO{
             resultSet = preStatement.executeQuery();
 
             if (resultSet.next()) {
-                User user = this.getUserFromResultSet(resultSet);
-                return user;
+                return this.getUserFromResultSet(resultSet);
             }
         } catch (Exception e) {
             e.printStackTrace(System.err);
@@ -62,8 +63,7 @@ public class UserDAOImpl implements UserDAO{
             resultSet = preStatement.executeQuery();
 
             if (resultSet.next()) {
-                User user = this.getUserFromResultSet(resultSet);
-                return user;
+                return this.getUserFromResultSet(resultSet);
             }
         } catch (Exception e) {
             e.printStackTrace(System.err);
@@ -93,8 +93,7 @@ public class UserDAOImpl implements UserDAO{
             resultSet = preStatement.executeQuery();
 
             if (resultSet.next()) {
-                User user = this.getUserFromResultSet(resultSet);
-                return user;
+                return this.getUserFromResultSet(resultSet);
             }
         } catch (Exception e) {
             e.printStackTrace(System.err);
@@ -109,11 +108,11 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public Set<User> findByType(User.UserType userType) {
+    public List<User> findByType(User.UserType userType) {
         PreparedStatement preStatement = null;
         Connection connection = null;
         ResultSet resultSet = null;
-        Set<User> userSet = new HashSet<>();
+        List<User> userList = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
@@ -124,10 +123,10 @@ public class UserDAOImpl implements UserDAO{
             resultSet = preStatement.executeQuery();
 
             while (resultSet.next()) {
-                userSet.add(this.getUserFromResultSet(resultSet));
+                userList.add(this.getUserFromResultSet(resultSet));
             }
 
-            return userSet;
+            return userList;
         } catch (Exception e) {
             e.printStackTrace(System.err);
             //OPEN ERROR WINDOW
@@ -141,12 +140,12 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public Set<User> findAll() {
+    public List<User> findAll() {
         PreparedStatement preStatement = null;
         Connection connection = null;
 
         ResultSet resultSet = null;
-        Set<User> users = new HashSet<User>();
+        List<User> users = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
@@ -172,12 +171,12 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public Set<User> findByUsernameOrEmail(String username, String email) {
+    public List<User> findByUsernameOrEmail(String username, String email) {
         PreparedStatement preStatement = null;
         Connection connection = null;
 
         ResultSet resultSet = null;
-        Set<User> users = new HashSet<User>();
+        List<User> users = new ArrayList<>();
 
         try {
             connection = dataSource.getConnection();
@@ -293,7 +292,7 @@ public class UserDAOImpl implements UserDAO{
         return false;
     }
 
-    private User getUserFromResultSet(ResultSet resultSet) throws SQLException, UnsupportedEncodingException {
+    private User getUserFromResultSet(ResultSet resultSet) throws SQLException {
         String username = resultSet.getString("Username");
         String email = resultSet.getString("Email");
         String password = resultSet.getString("Password");
