@@ -12,6 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import main.java.db.PropertyViewServiceImpl;
+import main.java.model.Property;
 import main.java.model.PropertyView;
 import main.java.model.User;
 
@@ -75,10 +77,6 @@ public class ViewOtherOwnersPropertiesController {
 
     private User user;
 
-    public ViewOtherOwnersPropertiesController(User user) {
-        this.user = user;
-    }
-
     public void onBack() {
         backButton.getScene().getWindow().hide();
     }
@@ -97,6 +95,10 @@ public class ViewOtherOwnersPropertiesController {
         stage.show();
     }
 
+    public void loadUser(User user) {
+        this.user = user;
+    }
+
     public void loadProperties() {
         nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("id"));
         addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
@@ -105,10 +107,14 @@ public class ViewOtherOwnersPropertiesController {
         sizeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Float>("size"));
         typeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("propertyType"));
         publicCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isPublic"));
-        commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommunity"));
+        commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommercial"));
         idCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("id"));
         visitsCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("visits"));
         avgRatingCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("averageRating"));
+
+        PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
+
+        validProperties.getItems().setAll(propertyViewService.findAllOtherConfirmedOrdered("Name ASC", null, null, user.getUsername()));
     }
 }
 

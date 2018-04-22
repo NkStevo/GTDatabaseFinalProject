@@ -1,13 +1,18 @@
 package main.java.controller;
 
+import com.sun.glass.ui.View;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import main.java.db.PropertyViewServiceImpl;
+import main.java.model.Property;
+import main.java.model.PropertyView;
 import main.java.model.User;
 
 import java.io.IOException;
@@ -68,13 +73,88 @@ public class OwnerDefaultViewController {
     @FXML
     private Button logOutButton;
 
+    @FXML
+    private ComboBox<?> searchMenu;
+
+    @FXML
+    private TextField searchTerm;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private Button manageButton;
+
+    @FXML
+    private Button addPropertyButton;
+
+    @FXML
+    private Button ViewOtherPropButton;
+
+    @FXML
+    private TableView<PropertyView> ownersProperties;
+
+    @FXML
+    private TableColumn<PropertyView, String> nameCol;
+
+    @FXML
+    private TableColumn<PropertyView, String> addressCol;
+
+    @FXML
+    private TableColumn<PropertyView, String> cityCol;
+
+    @FXML
+    private TableColumn<PropertyView, Integer> zipCol;
+
+    @FXML
+    private TableColumn<PropertyView, Float> sizeCol;
+
+    @FXML
+    private TableColumn<PropertyView, String> typeCol;
+
+    @FXML
+    private TableColumn<PropertyView, Boolean> publicCol;
+
+    @FXML
+    private TableColumn<PropertyView, Boolean> commercialCol;
+
+    @FXML
+    private TableColumn<PropertyView, Integer> idCol;
+
+    @FXML
+    private TableColumn<PropertyView, Integer> visitsCol;
+
+    @FXML
+    private TableColumn<PropertyView, Integer> avgRatingCol;
+
+    @FXML
+    private TableColumn<PropertyView, Boolean> isValidCol;
+
+    private User user;
+
 
     public void onLogOut() {
         logOutButton.getScene().getWindow().hide();
     }
 
-    @FXML
-    public void initialize(){
+
+    public void loadProperties(){
+        nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("id"));
+        addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));
+        zipCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("zipcode"));
+        sizeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Float>("size"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("propertyType"));
+        publicCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isPublic"));
+        commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommercial"));
+        idCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("id"));
+        visitsCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("visits"));
+        avgRatingCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("averageRating"));
+        isValidCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isValid"));
+
+        PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
+
+        ownersProperties.getItems().setAll(propertyViewService.findByOwnerOrdered("Name ASC", null, null, user.getUsername()));
     }
 
     @FXML
@@ -98,8 +178,16 @@ public class OwnerDefaultViewController {
 
     public void onViewOthers() {
         Parent root = null;
+        FXMLLoader loader = new FXMLLoader();
+        ViewOtherOwnersPropertiesController nextController;
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/ViewOtherOwnersProperties.fxml"));
+            loader.setLocation(getClass().getResource("/main/resources/view/ViewOtherOwnersProperties.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+            nextController.loadUser(this.user);
+            nextController.loadProperties();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -120,6 +208,10 @@ public class OwnerDefaultViewController {
         stage.setTitle("Manage Property ");
         stage.setScene(new Scene(root, 750, 600));
         stage.show();
+    }
+
+    public void loadUser(User user) {
+        this.user = user;
     }
 
 }

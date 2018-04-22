@@ -55,7 +55,7 @@ public class PropertyView {
         this.size = size;
     }
 
-    public boolean isCommercial() {
+    public boolean getIsCommercial() {
         return isCommercial;
     }
 
@@ -63,7 +63,7 @@ public class PropertyView {
         isCommercial = commercial;
     }
 
-    public boolean isPublic() {
+    public boolean getIsPublic() {
         return isPublic;
     }
 
@@ -103,7 +103,7 @@ public class PropertyView {
         this.propertyType = propertyType;
     }
 
-    public boolean isValid() {
+    public boolean getIsValid() {
         return isValid;
     }
 

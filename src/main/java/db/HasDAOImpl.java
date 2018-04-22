@@ -1,5 +1,6 @@
 package main.java.db;
 
+import main.java.model.FarmItem;
 import main.java.model.Has;
 
 import java.sql.Connection;
@@ -28,7 +29,7 @@ public class HasDAOImpl implements HasDAO{
         try {
             connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM Has WHERE ItemName in " +
-                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type=ANIMAL ) AND PropertyID=?");
+                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type='ANIMAL' ) AND PropertyID=?");
             preStatement.setString(1, propertyID);
 
             resultSet = preStatement.executeQuery();
@@ -61,7 +62,7 @@ public class HasDAOImpl implements HasDAO{
         try {
             connection = dataSource.getConnection();
             preStatement = connection.prepareStatement("SELECT * FROM Has WHERE ItemName in " +
-                    "(SELECT Name FROM FarmItem WHERE IsApproved = TRUE and Type!=ANIMAL ) AND PropertyID=?");
+                    "(SELECT Name FROM FarmItem WHERE IsApproved=TRUE and Type!='ANIMAL' ) AND PropertyID=?");
             preStatement.setString(1, propertyID);
 
             resultSet = preStatement.executeQuery();

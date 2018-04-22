@@ -153,7 +153,6 @@ public class PropertyViewServiceImpl implements PropertyViewService {
         int zipcode = resultSet.getInt("Zip");
         Property.PropertyType propertyType = Property.PropertyType.valueOf(resultSet.getString(
                 "PropertyType"));
-        String owner = resultSet.getString("Owner");
         boolean isValid;
 
         if (isValidShown) {
