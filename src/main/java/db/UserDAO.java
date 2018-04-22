@@ -15,6 +15,7 @@ public interface UserDAO {
     List<User> findByUsernameOrEmail(String username, String email);
     List<User> findAllUsersOfTypeOrdered(User.UserType userType, String orderByColumn, String searchTerm,
                                                 String termLike, boolean isAscending);
+    
 
     boolean insertUser(User user);
     boolean updateUser(User user);

@@ -134,7 +134,7 @@ public class PropertyDAOImpl implements PropertyDAO {
     }
 
     @Override
-    public List<Property> findUnapprovedOrdered(String orderByColumn, boolean isAscending, String searchTerm,
+    public List<Property> findUnapprovedOrdered(String orderByColumns, String searchTerm,
                                                 String termLike) {
         Connection connection = null;
         PreparedStatement preStatement = null;
@@ -143,14 +143,13 @@ public class PropertyDAOImpl implements PropertyDAO {
 
         try {
             connection = connectionPool.getConnection();
-            String order = (isAscending) ? "ASC" : "DESC";
 
             if (termLike != null) {
                 preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy IS NULL AND " +
-                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumn + " " + order);
+                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy IS NULL " +
-                        "ORDER BY " + orderByColumn + " " + order);
+                        "ORDER BY " + orderByColumns);
             }
 
             resultSet = preStatement.executeQuery();

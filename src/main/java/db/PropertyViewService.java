@@ -5,8 +5,8 @@ import main.java.model.PropertyView;
 import java.util.List;
 
 public interface PropertyViewService {
-    List<PropertyView> findAllConfirmedOrdered(String orderByColumn, String searchTerm, String termLike,
-                                               boolean isAscending);
-    List<PropertyView> findAllExcludeOwner(String excludedOwner, String orderByColumn, String searchTerm,
-                                           String termLike, boolean isAscending);
+    List<PropertyView> findByOwnerOrdered(String orderByColumn, String searchTerm, String termLike, String owner);
+    List<PropertyView> findAllConfirmedOrdered(String orderByColumn, String searchTerm, String termLike);
+    List<PropertyView> findAllOtherConfirmedOrdered(String orderByColumn, String searchTerm, String termLike,
+                                                    String owner);
 }

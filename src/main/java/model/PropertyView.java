@@ -9,21 +9,14 @@ public class PropertyView {
     private String street;
     private String city;
     private int zipcode;
-    private String ownerUsername;
-    private String approverUsername;
     private boolean isValid;
     private int visits;
     private int averageRating;
-
-    public enum PropertyType {
-        FARM, GARDEN, ORCHARD
-    }
-
     private Property.PropertyType propertyType;
 
     public PropertyView(int id, String name, float size, boolean isCommercial, boolean isPublic, String street,
-                        String city, int zipcode, Property.PropertyType propertyType, String ownerUsername,
-                        String approverUsername, boolean isValid, int visits, int averageRating) {
+                        String city, int zipcode, Property.PropertyType propertyType,
+                        boolean isValid, int visits, int averageRating) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -33,18 +26,9 @@ public class PropertyView {
         this.city = city;
         this.zipcode = zipcode;
         this.propertyType = propertyType;
-        this.ownerUsername = ownerUsername;
-        this.approverUsername = approverUsername;
         this.isValid = isValid;
         this.visits = visits;
         this.averageRating = averageRating;
-    }
-
-    public PropertyView(int id, String name, float size, boolean isCommercial, boolean isPublic, String street, String city,
-                    int zipcode, Property.PropertyType propertyType, String ownerUsername, boolean isValid, int visits,
-                        int averageRating) {
-        this(id, name, size, isCommercial, isPublic, street, city, zipcode, propertyType, ownerUsername,
-                null, isValid, visits, averageRating);
     }
 
     public int getId() {
@@ -109,22 +93,6 @@ public class PropertyView {
 
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
-    }
-
-    public String getOwnerUsername() {
-        return ownerUsername;
-    }
-
-    public void setOwnerUsername(String ownerUsername) {
-        this.ownerUsername = ownerUsername;
-    }
-
-    public String getApproverUsername() {
-        return approverUsername;
-    }
-
-    public void setApproverUsername(String approverUsername) {
-        this.approverUsername = approverUsername;
     }
 
     public Property.PropertyType getPropertyType() {
