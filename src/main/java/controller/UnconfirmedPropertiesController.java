@@ -60,7 +60,7 @@ public class UnconfirmedPropertiesController {
     private TableColumn<Property, String> ownerCol;
 
     @FXML
-    private ComboBox<?> searchMenu;
+    private ComboBox<String> searchMenu;
 
     @FXML
     private TextField searchTerm;
@@ -117,6 +117,37 @@ public class UnconfirmedPropertiesController {
         PropertyDAOImpl propertyDAO = new PropertyDAOImpl();
 
         unconfirmedProps.getItems().setAll(propertyDAO.findUnapprovedOrdered("Name ASC", null, null));
+
+        searchMenu.getItems().addAll(
+                "Name",
+                "Street",
+                "City",
+                "ID",
+                "Zip",
+                "Size",
+                "PropertyType",
+                "isPublic",
+                "isCommercial",
+                "Owner");
+    }
+
+    public void onSearch() {
+        if (searchTerm.getText() != null && !searchMenu.getSelectionModel().isEmpty()) {
+            nameCol.setCellValueFactory(new PropertyValueFactory<Property, String>("name"));
+            addressCol.setCellValueFactory(new PropertyValueFactory<Property, String>("street"));
+            cityCol.setCellValueFactory(new PropertyValueFactory<Property, String>("city"));
+            zipCol.setCellValueFactory(new PropertyValueFactory<Property, Integer>("zipcode"));
+            sizeCol.setCellValueFactory(new PropertyValueFactory<Property, Float>("size"));
+            typeCol.setCellValueFactory(new PropertyValueFactory<Property, String>("propertyType"));
+            publicCol.setCellValueFactory(new PropertyValueFactory<Property, Boolean>("isPublic"));
+            commercialCol.setCellValueFactory(new PropertyValueFactory<Property, Boolean>("isCommercial"));
+            idCol.setCellValueFactory(new PropertyValueFactory<Property, Integer>("id"));
+            ownerCol.setCellValueFactory(new PropertyValueFactory<Property, String>("ownerUsername"));
+
+            PropertyDAOImpl propertyDAO = new PropertyDAOImpl();
+
+            unconfirmedProps.getItems().setAll(propertyDAO.findUnapprovedOrdered("Name ASC", searchMenu.getValue(), searchTerm.getText()));
+        }
     }
 }
 

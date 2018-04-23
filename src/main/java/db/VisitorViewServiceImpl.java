@@ -30,8 +30,8 @@ public class VisitorViewServiceImpl implements  VisitorViewService {
                 preStatement = connection.prepareStatement("SELECT User.Username AS Username, Email, Test.Count AS LoggedVisits " +
                         "FROM User, (SELECT Username, COUNT(Username) AS Count " +
                         "from Visit " +
-                        "group by Visit.Username) AS Test WHERE Test.Username = User.Username AND " + searchTerm + " LIKE %" + termLike +
-                        "% ORDER BY " + orderByColumns);
+                        "group by Visit.Username) AS Test WHERE Test.Username = User.Username AND " + searchTerm + " LIKE '%" + termLike +
+                        "%' ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT User.Username AS Username, Email, Test.Count AS LoggedVisits " +
                         "FROM User, (SELECT Username, COUNT(Username) AS Count " +

@@ -89,7 +89,7 @@ public class VisitDAOImpl implements VisitDAO {
 
             if (termLike != null) {
                 preStatement = connection.prepareStatement("SELECT * FROM Visit WHERE Username=? AND " +
-                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+                        searchTerm + " LIKE '%" + termLike + "%' ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT * FROM Visit WHERE Username=? " +
                         "ORDER BY " + orderByColumns);

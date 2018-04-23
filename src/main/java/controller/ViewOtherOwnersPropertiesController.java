@@ -124,18 +124,19 @@ public class ViewOtherOwnersPropertiesController {
         searchMenu.getItems().addAll(
                 "Name",
                 "Street",
+                "City",
+                "ID",
                 "Zip",
                 "Size",
                 "PropertyType",
                 "isPublic",
                 "isCommercial",
                 "Visits",
-                "Avg_Rating",
-                "ApprovedBy");
+                "Avg_Rating");
     }
 
     public void onSearch() {
-        if (searchTerm.getText() != null && !searchTerm.getText().trim().isEmpty() && !searchMenu.getSelectionModel().isEmpty()) {
+        if (searchTerm.getText() != null && !searchMenu.getSelectionModel().isEmpty()) {
             nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("name"));
             addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
             cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));

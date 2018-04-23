@@ -56,7 +56,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
 
             if (termLike != null) {
                 preStatement = connection.prepareStatement("SELECT * FROM FarmItem WHERE IsApproved=TRUE AND " +
-                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+                        searchTerm + " LIKE '%" + termLike + "%' ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT * FROM FarmItem WHERE IsApproved=TRUE " +
                         "ORDER BY " + orderByColumns);
