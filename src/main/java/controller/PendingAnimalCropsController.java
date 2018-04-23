@@ -53,7 +53,8 @@ public class PendingAnimalCropsController {
     }
 
     public void onApprove() {
-        f.insertFarmItem(new FarmItem(pendingItems.getSelectionModel().getSelectedItem().getName(), true, pendingItems.getSelectionModel().getSelectedItem().getItemType()));
+        f.updateFarmItem(new FarmItem(pendingItems.getSelectionModel().getSelectedItem().getName(), true, pendingItems.getSelectionModel().getSelectedItem().getItemType()));
+        loadFarmItems();
     }
 
     public void onDelete() {

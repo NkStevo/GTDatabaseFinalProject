@@ -77,6 +77,7 @@ public class ViewAllOwnersController {
         OwnerView owner = allOwners.getSelectionModel().getSelectedItem();
         User tbd = u.findByEmail(owner.getEmail());
         u.deleteUser(tbd);
+        loadOwners();
     }
 
     public void onSearch() {

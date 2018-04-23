@@ -193,6 +193,9 @@ public class LogVisitController {
 
     public void onLog() {
         long time = new Date().getTime();
+
+        System.out.println(property.getId());
+
         Visit newVisit = new Visit(u.getUsername(), property.getId(),new Timestamp(time),(int)ratingTool.getRating());
         visits.insertVisit(newVisit);
 

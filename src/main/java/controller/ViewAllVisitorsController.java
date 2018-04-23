@@ -83,6 +83,7 @@ public class ViewAllVisitorsController {
         VisitorView visitor = allVisitors.getSelectionModel().getSelectedItem();
         User tbd = u.findByEmail(visitor.getEmail());
         u.deleteUser(tbd);
+        loadVisitors();
     }
 
     public void onDeleteLog() {

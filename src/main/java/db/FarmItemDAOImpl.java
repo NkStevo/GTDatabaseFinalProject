@@ -155,7 +155,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
             preStatement.setString(1, farmItem.getName());
             preStatement.setBoolean(2, farmItem.getIsApproved());
             preStatement.setString(3, farmItem.getItemType().name());
-            preStatement.setString(1, farmItem.getName());
+            preStatement.setString(4, farmItem.getName());
 
             int flag = preStatement.executeUpdate();
 

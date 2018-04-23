@@ -86,12 +86,13 @@ public class ApprovedAnimalsCropsController {
     public void onDelete() {
         FarmItem tbd = approvedItems.getSelectionModel().getSelectedItem();
         f.deleteFarmItem(tbd);
-
+        loadFarmItems();
     }
 
     public void onAdd() {
         FarmItem tba = new FarmItem(approveName.getText(), true, typeMenu.getValue());
         f.insertFarmItem(tba);
+        loadFarmItems();
     }
 
     public void onSearch() {
