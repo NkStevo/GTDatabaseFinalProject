@@ -42,7 +42,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="125.0" text="Log Out">
+                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="125.0" text="Log Out" onAction="#onBack">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

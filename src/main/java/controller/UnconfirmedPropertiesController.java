@@ -81,8 +81,14 @@ public class UnconfirmedPropertiesController {
 
     public void onManage() {
         Parent root = null;
+        FXMLLoader loader = new FXMLLoader();
+        AdminManagePropertiesController nextController;
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/AdminManageProperties.fxml"));
+            loader.setLocation(getClass().getResource("/main/resources/view/AdminManageProperties.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+            nextController.loadUser(this.user);
+            nextController.loadProperties(unconfirmedProps.getSelectionModel().getSelectedItem());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

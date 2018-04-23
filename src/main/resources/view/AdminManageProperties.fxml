@@ -107,7 +107,7 @@
                      </HBox.margin>
                   </Label>
                   <ComboBox fx:id="cropMenu" prefHeight="28.0" prefWidth="171.0" promptText="Select Approved Crop" />
-                  <Button fx:id="addCropButton" mnemonicParsing="false" prefHeight="28.0" prefWidth="135.0" text="Add Crop to Property" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="addCropButton" mnemonicParsing="false" prefHeight="28.0" prefWidth="135.0" text="Add Crop to Property" textAlignment="CENTER" wrapText="true" onAction="#onAddCrop"/>
                </children>
                <VBox.margin>
                   <Insets top="15.0" />
@@ -121,7 +121,7 @@
                      </HBox.margin>
                   </Label>
                   <ComboBox fx:id="animalMenu" prefHeight="27.0" prefWidth="171.0" promptText="Select Approved Animal" />
-                  <Button fx:id="addAnimalButton" alignment="CENTER" mnemonicParsing="false" text="Add Animal to Property" />
+                  <Button fx:id="addAnimalButton" alignment="CENTER" mnemonicParsing="false" text="Add Animal to Property" onAction="#onAddAnimal"/>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -135,7 +135,7 @@
          <children>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="5.0">
                <children>
-                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="111.0" text="Delete Property">
+                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="111.0" text="Delete Property" onAction="#onDelete">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -144,7 +144,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="98.0" prefWidth="150.0" spacing="5.0">
                <children>
-                  <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" text="Save Changes (Confirm Property)" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" text="Save Changes (Confirm Property)" textAlignment="CENTER" wrapText="true" onAction="#onSave">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>

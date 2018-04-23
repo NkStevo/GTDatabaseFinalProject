@@ -83,14 +83,19 @@ public class ViewOtherOwnersPropertiesController {
 
     public void onDetails() {
         Parent root = null;
+        FXMLLoader loader = new FXMLLoader();
+        OtherPropertiesDetailsController nextController;
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/OtherPropertiesDetails.fxml"));
+            loader.setLocation(getClass().getResource("/main/resources/view/OtherPropertiesDetails.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+            nextController.loadUser(this.user);
+            nextController.loadProperties(validProperties.getSelectionModel().getSelectedItem());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
         Stage stage = new Stage();
-        stage.setTitle("Property Details");
+        stage.setTitle("Other Property Details");
         stage.setScene(new Scene(root, 750, 600));
         stage.show();
     }

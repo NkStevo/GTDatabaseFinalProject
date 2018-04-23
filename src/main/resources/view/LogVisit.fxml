@@ -10,7 +10,7 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="432.0" spacing="2.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.LogVisitController">
    <children>
-      <Label fx:id="title" alignment="CENTER" prefHeight="55.0" prefWidth="432.0" text="NAME + TYPE + Details" textAlignment="CENTER" underline="true">
+      <Label fx:id="title" alignment="CENTER" prefHeight="55.0" prefWidth="500.0" text="NAME + TYPE + Details" textAlignment="CENTER" underline="true">
          <font>
             <Font size="38.0" />
          </font>

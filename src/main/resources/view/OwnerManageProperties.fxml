@@ -101,7 +101,7 @@
                      </HBox.margin>
                   </Label>
                   <ComboBox fx:id="approvedCropMenu" prefHeight="26.0" prefWidth="162.0" promptText="Select Approved Crop" />
-                  <Button fx:id="addCropButton" mnemonicParsing="false" prefHeight="28.0" prefWidth="135.0" text="Add Crop to Property" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="addCropButton" mnemonicParsing="false" prefHeight="28.0" prefWidth="135.0" text="Add Crop to Property" textAlignment="CENTER" wrapText="true" onAction="#onAddCroptoProperty"/>
                </children>
                <VBox.margin>
                   <Insets top="15.0" />
@@ -116,7 +116,7 @@
                   </Label>
                   <TextField fx:id="cropName" promptText="Crop Name" />
                   <ComboBox fx:id="cropTypeMenu" prefHeight="25.0" prefWidth="164.0" promptText="Select New Crop Type" />
-                  <Button fx:id="submitButton" alignment="CENTER" mnemonicParsing="false" text="Submit Request" />
+                  <Button fx:id="submitButton" alignment="CENTER" mnemonicParsing="false" text="Submit Request" onAction="#onSubmitRequest"/>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -130,7 +130,7 @@
          <children>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="5.0">
                <children>
-                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="111.0" text="Delete Property">
+                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="111.0" text="Delete Property" onAction="#onDelete">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -139,7 +139,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="5.0">
                <children>
-                  <Button fx:id="saveButton" mnemonicParsing="false" prefWidth="111.0" text="Save Changes">
+                  <Button fx:id="saveButton" mnemonicParsing="false" prefWidth="111.0" text="Save Changes" onAction="#onSaveChanges">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
