@@ -31,7 +31,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
                 preStatement = connection.prepareStatement("SELECT Name, Street, City, Zip, Size, PropertyType, " +
                         "IsPublic, IsCommercial, ID, IF(ApprovedBy IS NULL, false, true) AS isValid, Visits, " +
                         "Avg_Rating FROM Property, VISIT_SUMMARY WHERE PropertyID = ID AND Owner=? AND" +
-                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+                        searchTerm + " LIKE '%" + termLike + "%' ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT Name, Street, City, Zip, Size, PropertyType, " +
                         "IsPublic, IsCommercial, ID, IF(ApprovedBy IS NULL, false, true) AS isValid, Visits, " +
@@ -72,7 +72,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
                         "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating, P.ApprovedBy " +
                         "FROM Property AS P, VISIT_SUMMARY AS V WHERE P.ID = V.PropertyID AND " +
-                        "P.ApprovedBy IS NOT NULL AND" + searchTerm + " LIKE %" + termLike + "% ORDER BY " +
+                        "P.ApprovedBy IS NOT NULL AND" + searchTerm + " LIKE '%" + termLike + "%' ORDER BY " +
                         orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
@@ -114,7 +114,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
                         "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating, P.ApprovedBy " +
                         "FROM Property AS P, VISIT_SUMMARY AS V WHERE P.ID = V.PropertyID AND " +
-                        "P.ApprovedBy IS NOT NULL AND Owner!=?" + searchTerm + " LIKE %" + termLike + "% ORDER BY " +
+                        "P.ApprovedBy IS NOT NULL AND Owner!=? AND " + searchTerm + " LIKE '%" + termLike + "%' ORDER BY " +
                         orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +

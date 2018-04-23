@@ -46,7 +46,7 @@ public class VisitorDefaultViewController {
     private Button logOutButton;
 
     @FXML
-    private TableView<PropertyView> validProperties;
+    private TableView<PropertyView> validProps;
 
     @FXML
     private TableColumn<PropertyView, String> nameCol;
@@ -82,6 +82,7 @@ public class VisitorDefaultViewController {
     private TableColumn<PropertyView, Integer> avgRatingCol;
 
     public Property p = new Property(0, "Atwood Street Garden", 1.0f, false, true, "Atwood Street SW", "Atlanta",30308, Property.PropertyType.GARDEN, "gardenowner");
+
     private User user;
 
 
@@ -143,7 +144,7 @@ public class VisitorDefaultViewController {
 
         PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
 
-        validProperties.getItems().setAll(propertyViewService.findAllOtherConfirmedOrdered("Name ASC", null, null, user.getUsername()));
+        validProps.getItems().setAll(propertyViewService.findAllConfirmedOrdered("Name ASC", null, null));
     }
 }
 

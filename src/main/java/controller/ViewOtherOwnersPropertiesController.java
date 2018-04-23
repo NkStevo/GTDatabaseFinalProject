@@ -25,7 +25,7 @@ public class ViewOtherOwnersPropertiesController {
     private Label title;
 
     @FXML
-    private ComboBox<?> searchMenu;
+    private ComboBox<String> searchMenu;
 
     @FXML
     private TextField searchTerm;
@@ -120,6 +120,39 @@ public class ViewOtherOwnersPropertiesController {
         PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
 
         validProperties.getItems().setAll(propertyViewService.findAllOtherConfirmedOrdered("Name ASC", null, null, user.getUsername()));
+
+        searchMenu.getItems().addAll(
+                "Name",
+                "Street",
+                "Zip",
+                "Size",
+                "PropertyType",
+                "isPublic",
+                "isCommercial",
+                "Visits",
+                "Avg_Rating",
+                "ApprovedBy");
     }
+
+    public void onSearch() {
+        if (searchTerm.getText() != null && !searchTerm.getText().trim().isEmpty() && !searchMenu.getSelectionModel().isEmpty()) {
+            nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("name"));
+            addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
+            cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));
+            zipCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("zipcode"));
+            sizeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Float>("size"));
+            typeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("propertyType"));
+            publicCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isPublic"));
+            commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommercial"));
+            idCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("id"));
+            visitsCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("visits"));
+            avgRatingCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("averageRating"));
+
+            PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
+
+            validProperties.getItems().setAll(propertyViewService.findAllOtherConfirmedOrdered("Name ASC", searchMenu.getValue(), searchTerm.getText(), user.getUsername()));
+        }
+    }
+
 }
 

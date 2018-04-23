@@ -93,7 +93,10 @@ public class UserLoginWindowController {
                         } catch (IOException e) {
                             System.out.println(e.getMessage());
                         }
-                        VisitorDefaultViewController vc = loader.<VisitorDefaultViewController>getController();
+
+                        VisitorDefaultViewController vc = loader.getController();
+                        vc.loadUser(user);
+                        vc.loadProperties();
                         vc.setTitle(me.getUsername());
                         stage.show();
                         break;

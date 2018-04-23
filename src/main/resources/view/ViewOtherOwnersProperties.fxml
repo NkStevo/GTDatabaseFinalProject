@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.ViewOtherOwnersPropertiesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.ViewOtherOwnersPropertiesController">
    <top>
       <Label fx:id="title" text="All Other Valid Properties" BorderPane.alignment="CENTER">
          <font>
@@ -30,13 +30,13 @@
                <children>
                   <ComboBox fx:id="searchMenu" prefWidth="135.0" promptText="Search by..." />
                   <TextField fx:id="searchTerm" prefHeight="17.0" prefWidth="130.0" promptText="Search Term" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Search Properties" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" prefHeight="25.0" prefWidth="135.0" text="Search Properties" />
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
                <children>
-                  <Button fx:id="viewDetailsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Property Details" onAction="#onDetails"/>
-                  <Button fx:id="backButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Back" onAction="#onBack"/>
+                  <Button fx:id="viewDetailsButton" mnemonicParsing="false" onAction="#onDetails" prefHeight="25.0" prefWidth="135.0" text="View Property Details" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="135.0" text="Back" />
                </children>
                <HBox.margin>
                   <Insets bottom="7.0" />

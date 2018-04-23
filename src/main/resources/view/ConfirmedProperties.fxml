@@ -47,7 +47,7 @@
                <children>
                   <ComboBox fx:id="searchMenu" prefWidth="140.0" promptText="Search by..." />
                   <TextField fx:id="searchTerm" maxWidth="140.0" minWidth="100.0" prefHeight="24.0" prefWidth="140.0" promptText="Search Term" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="140.0" text="Search Properties" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" prefWidth="140.0" text="Search Properties" />
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
