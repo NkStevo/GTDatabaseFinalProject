@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="064b84ee-fd5a-4060-b10f-db4d83dfba00" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ViewAllVisitorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ViewAllVisitorsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/PropertyViewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/PropertyViewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UnlogVisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UnlogVisitController.java" afterDir="false" />
     </list>
     <ignored path="GTDatabaseFinalProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="VisitorDefaultViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/VisitorDefaultViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="163" column="88" lean-forward="true" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="88" />
+            <state relative-caret-position="1314">
+              <caret line="163" column="88" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="88" />
               <folding>
                 <element signature="e#2163#2164#0" expanded="true" />
                 <element signature="e#2221#2222#0" expanded="true" />
@@ -40,11 +39,74 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VisitorViewServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitorViewServiceImpl.java">
+      <file leaf-file-name="LogVisitController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/LogVisitController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="29" column="72" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="72" />
+            <state relative-caret-position="208">
+              <caret line="140" selection-start-line="140" selection-end-line="140" />
+              <folding>
+                <element signature="e#1546#1547#0" expanded="true" />
+                <element signature="e#1594#1595#0" expanded="true" />
+                <element signature="e#4936#4937#0" expanded="true" />
+                <element signature="e#4962#4963#0" expanded="true" />
+                <element signature="e#4989#4990#0" expanded="true" />
+                <element signature="e#5045#5046#0" expanded="true" />
+                <element signature="e#5730#5752#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnlogVisitController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/UnlogVisitController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="213" column="39" selection-start-line="213" selection-start-column="39" selection-end-line="213" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Property.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Property.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PropertyView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/PropertyView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1182">
+              <caret line="131" column="37" lean-forward="true" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApprovedAnimalsCropsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/ApprovedAnimalsCropsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PendingAnimalCropsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/PendingAnimalCropsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="424">
+              <caret line="55" column="170" lean-forward="true" selection-start-line="55" selection-start-column="170" selection-end-line="55" selection-end-column="170" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FarmItemDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="157" column="36" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -52,8 +114,8 @@
       <file leaf-file-name="ViewAllOwnersController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ViewAllOwnersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="72" selection-end-column="33" />
+            <state relative-caret-position="294">
+              <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -61,26 +123,8 @@
       <file leaf-file-name="ViewAllVisitorsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ViewAllVisitorsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="112" column="101" selection-start-line="112" selection-start-column="101" selection-end-line="112" selection-end-column="101" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertyViewServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/db/PropertyViewServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-281">
-              <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogVisitController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/LogVisitController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="195" selection-start-line="195" selection-end-line="195" />
+            <state relative-caret-position="399">
+              <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -112,13 +156,11 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/AddNewPropertyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/NewOwnerRegistrationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/FarmItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/PendingAnimalCropsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/VisitorView.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/AdminDefaultViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/UserLoginWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/PropertyDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/OwnerViewServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/VisitorViewServiceImpl.java" />
@@ -127,10 +169,14 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/UnconfirmedPropertiesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/OwnerDefaultViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/VisitorDefaultViewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/ViewAllOwnersController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/ApprovedAnimalsCropsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/ViewAllVisitorsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/PropertyViewServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/ApprovedAnimalsCropsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/ViewAllOwnersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/ViewAllVisitorsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/PendingAnimalCropsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/LogVisitController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/UnlogVisitController.java" />
       </list>
     </option>
   </component>
@@ -575,7 +621,28 @@
       <option name="project" value="LOCAL" />
       <updated>1524452464130</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Completed search functionality">
+      <created>1524453809153</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1524453809153</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Bufixes">
+      <created>1524454631614</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1524454631614</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Bufixes">
+      <created>1524455104087</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1524455104087</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -588,10 +655,10 @@
       <window_info id="Palette&#9;" order="2" />
       <window_info id="Image Layers" />
       <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.502965" side_tool="true" visible="true" weight="0.30737704" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50350404" side_tool="true" visible="true" weight="0.30737704" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49703503" visible="true" weight="0.30737704" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49973047" weight="0.32991803" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49649596" visible="true" weight="0.30737704" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49919137" weight="0.32991803" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" />
       <window_info anchor="right" id="Designer" order="3" />
@@ -634,7 +701,8 @@
     <MESSAGE value="Visitor TableView populated" />
     <MESSAGE value="Fixed Visitor TableView bug" />
     <MESSAGE value="Completed search functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed search functionality" />
+    <MESSAGE value="Bufixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bufixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -649,13 +717,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/ConfirmedProperties.fxml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -780,13 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Property.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Visit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -900,13 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/PropertyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="131" column="37" lean-forward="true" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/OwnerDefaultViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1209">
@@ -963,27 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-381">
-          <caret line="58" column="64" selection-start-line="58" selection-start-column="64" selection-end-line="58" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/PendingAnimalCropsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ApprovedAnimalsCropsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="92" column="86" lean-forward="true" selection-start-line="92" selection-start-column="86" selection-end-line="92" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="619">
@@ -991,10 +1017,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/PropertyViewServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitorViewServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="29" column="72" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/VisitorDefaultViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="163" column="88" lean-forward="true" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="88" />
+        <state relative-caret-position="1314">
+          <caret line="163" column="88" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="88" />
           <folding>
             <element signature="e#2163#2164#0" expanded="true" />
             <element signature="e#2221#2222#0" expanded="true" />
@@ -1007,36 +1047,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ViewAllOwnersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="72" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/VisitorViewServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="29" column="72" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="72" />
+        <state relative-caret-position="294">
+          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ViewAllVisitorsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="112" column="101" selection-start-line="112" selection-start-column="101" selection-end-line="112" selection-end-column="101" />
+        <state relative-caret-position="399">
+          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/PropertyViewServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ApprovedAnimalsCropsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-281">
-          <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+        <state relative-caret-position="504">
+          <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/FarmItemDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="157" column="36" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/PendingAnimalCropsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="55" column="170" lean-forward="true" selection-start-line="55" selection-start-column="170" selection-end-line="55" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/PropertyView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1182">
+          <caret line="131" column="37" lean-forward="true" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/LogVisitController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        <state relative-caret-position="208">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="e#1546#1547#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
+            <element signature="e#4962#4963#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5045#5046#0" expanded="true" />
+            <element signature="e#5730#5752#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UnlogVisitController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="213" column="39" selection-start-line="213" selection-start-column="39" selection-end-line="213" selection-end-column="39" />
         </state>
       </provider>
     </entry>

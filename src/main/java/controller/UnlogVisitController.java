@@ -153,6 +153,7 @@ public class UnlogVisitController {
         List<Visit> v = visits.findByProperty(propertyView.getId());
         name.setText(propertyView.getName());
         Property x = p.findByID(propertyView.getId());
+        setProperty(x);
         ownerName.setText(x.getOwnerUsername());
         User owner = users.findByUsername(x.getOwnerUsername());
         ownerEmail.setText(owner.getEmail());
@@ -210,7 +211,8 @@ public class UnlogVisitController {
             System.out.println(e.getMessage());
         }
         LogVisitController controller = loader.<LogVisitController>getController();
-        controller.setProperty(propertyView);
+        controller.setProperty(property);
+        controller.setTitle(property.getName());
         controller.loadUser(u);
         stage.show();
     }

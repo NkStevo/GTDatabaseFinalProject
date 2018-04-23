@@ -210,6 +210,7 @@ public class LogVisitController {
         }
         UnlogVisitController controller = loader.<UnlogVisitController>getController();
         controller.setProperty(property);
+        controller.setTitle(property.getName());
         controller.loadUser(u);
         controller.loadVisit(newVisit);
         stage.show();
