@@ -74,7 +74,7 @@ public class OwnerDefaultViewController {
     private Button logOutButton;
 
     @FXML
-    private ComboBox<?> searchMenu;
+    private ComboBox<String> searchMenu;
 
     @FXML
     private TextField searchTerm;
@@ -155,6 +155,20 @@ public class OwnerDefaultViewController {
         PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
 
         ownersProperties.getItems().setAll(propertyViewService.findByOwnerOrdered("Name ASC", null, null, user.getUsername()));
+
+        searchMenu.getItems().addAll(
+                "Name",
+                "Street",
+                "City",
+                "Zip",
+                "Size",
+                "PropertyType",
+                "isPublic",
+                "isCommercial",
+                "ID",
+                "IsValid",
+                "Visits",
+                "Avg_Rating");
     }
 
     @FXML
@@ -212,6 +226,27 @@ public class OwnerDefaultViewController {
         OwnerManagePropertiesController omp = loader.<OwnerManagePropertiesController>getController();
         omp.setP(ownersProperties.getSelectionModel().getSelectedItem(), this.user);
         stage.show();
+    }
+
+    public void onSearch() {
+        if (searchTerm.getText() != null && !searchMenu.getSelectionModel().isEmpty()) {
+            nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("name"));
+            addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
+            cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));
+            zipCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("zipcode"));
+            sizeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Float>("size"));
+            typeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("propertyType"));
+            publicCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isPublic"));
+            commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommercial"));
+            idCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("id"));
+            visitsCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("visits"));
+            avgRatingCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("averageRating"));
+            isValidCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isValid"));
+
+            PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
+
+            ownersProperties.getItems().setAll(propertyViewService.findByOwnerOrdered("Name ASC", searchMenu.getValue(), searchTerm.getText(), user.getUsername()));
+        }
     }
 
     public void loadUser(User user) {

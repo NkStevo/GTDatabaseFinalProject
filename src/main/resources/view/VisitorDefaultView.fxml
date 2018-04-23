@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.VisitorDefaultViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.VisitorDefaultViewController">
    <top>
       <Label fx:id="title" text="Welcome + NAME" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
@@ -27,13 +27,13 @@
                <children>
                   <ComboBox fx:id="searchMenu" prefWidth="140.0" promptText="Search by..." />
                   <TextField fx:id="searchTerm" maxWidth="140.0" minWidth="100.0" prefHeight="24.0" prefWidth="140.0" promptText="Search Term" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="140.0" text="Search Properties" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" prefWidth="140.0" text="Search Properties" />
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="viewPropertyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="View Property" textAlignment="CENTER" wrapText="true" onAction="#onProperty"/>
-                  <Button fx:id="viewVisitHistButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="View Visit History" textAlignment="CENTER" wrapText="true" onAction="#onClickHistory">
+                  <Button fx:id="viewPropertyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" onAction="#onProperty" prefHeight="25.0" prefWidth="125.0" text="View Property" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="viewVisitHistButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" mnemonicParsing="false" onAction="#onClickHistory" prefHeight="25.0" prefWidth="125.0" text="View Visit History" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="125.0" text="Log Out" onAction="#onBack">
+                  <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#onBack" prefWidth="125.0" text="Log Out">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

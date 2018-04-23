@@ -43,7 +43,7 @@ public class ViewAllVisitorsController {
     private Button backButton;
 
     @FXML
-    private ComboBox<?> searchMenu;
+    private ComboBox<String> searchMenu;
 
     @FXML
     private TextField searchTerm;
@@ -71,6 +71,11 @@ public class ViewAllVisitorsController {
         VisitorViewServiceImpl visitorViewService = new VisitorViewServiceImpl();
 
         allVisitors.getItems().setAll(visitorViewService.findAllOrdered("Username ASC", null, null));
+
+        searchMenu.getItems().addAll(
+                "Username",
+                "Email",
+                "LoggedVisits");
     }
 
 
@@ -84,6 +89,18 @@ public class ViewAllVisitorsController {
         List<Visit> visits = v.findByUsernameOrdered(allVisitors.getSelectionModel().getSelectedItem().getUsername(), null, null, null);
         for (Visit va: visits) {
             v.deleteVisit(va);
+        }
+    }
+
+    public void onSearch() {
+        if (searchTerm.getText() != null && !searchMenu.getSelectionModel().isEmpty()) {
+            usernameCol.setCellValueFactory(new PropertyValueFactory<VisitorView, String>("username"));
+            emailCol.setCellValueFactory(new PropertyValueFactory<VisitorView, String>("email"));
+            visitsCol.setCellValueFactory(new PropertyValueFactory<VisitorView, Integer>("loggedVisits"));
+
+            VisitorViewServiceImpl visitorViewService = new VisitorViewServiceImpl();
+
+            allVisitors.getItems().setAll(visitorViewService.findAllOrdered("Username ASC", searchMenu.getValue(), searchTerm.getText()));
         }
     }
 }

@@ -13,6 +13,8 @@ import main.java.db.UserDAOImpl;
 import main.java.model.OwnerView;
 import main.java.model.User;
 
+import java.security.acl.Owner;
+
 public class ViewAllOwnersController {
 
     @FXML
@@ -37,7 +39,7 @@ public class ViewAllOwnersController {
     private Button backButton;
 
     @FXML
-    private ComboBox<?> searchMenu;
+    private ComboBox<String> searchMenu;
 
     @FXML
     private TextField searchTerm;
@@ -64,12 +66,29 @@ public class ViewAllOwnersController {
         OwnerViewServiceImpl ownerViewService = new OwnerViewServiceImpl();
 
         allOwners.getItems().setAll(ownerViewService.findAllOrdered("Username ASC", null, null));
+
+        searchMenu.getItems().addAll(
+                "Username",
+                "Email",
+                "PropertyCount");
     }
 
     public void onDelete() {
         OwnerView owner = allOwners.getSelectionModel().getSelectedItem();
         User tbd = u.findByEmail(owner.getEmail());
         u.deleteUser(tbd);
+    }
+
+    public void onSearch() {
+        if (searchTerm.getText() != null && !searchMenu.getSelectionModel().isEmpty()) {
+            usernameCol.setCellValueFactory(new PropertyValueFactory<OwnerView, String>("username"));
+            emailCol.setCellValueFactory(new PropertyValueFactory<OwnerView, String>("email"));
+            numPropertiesCol.setCellValueFactory(new PropertyValueFactory<OwnerView, Integer>("numOfProperties"));
+
+            OwnerViewServiceImpl ownerViewService = new OwnerViewServiceImpl();
+
+            allOwners.getItems().setAll(ownerViewService.findAllOrdered("Username ASC", searchMenu.getValue(), searchTerm.getText()));
+        }
     }
 }
 

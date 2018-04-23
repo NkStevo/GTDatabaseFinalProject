@@ -38,7 +38,7 @@ public class ApprovedAnimalsCropsController {
     private Button approveButton;
 
     @FXML
-    private ComboBox<?> searchMenu;
+    private ComboBox<String> searchMenu;
 
     @FXML
     private TextField searchTerm;
@@ -67,7 +67,7 @@ public class ApprovedAnimalsCropsController {
 
         FarmItemDAOImpl farmItemDAO = new FarmItemDAOImpl();
 
-        approvedItems.getItems().setAll(farmItemDAO.findPendingOrdered("Name ASC"));
+        approvedItems.getItems().setAll(farmItemDAO.findApprovedOrdered("Name ASC", null, null));
 
         ObservableList<FarmItem.FarmItemType> types = FXCollections.observableArrayList();
         types.add(FarmItem.FarmItemType.FLOWER);
@@ -77,6 +77,10 @@ public class ApprovedAnimalsCropsController {
         types.add(FarmItem.FarmItemType.VEGETABLE);
 
         typeMenu.setItems(types);
+
+        searchMenu.getItems().addAll(
+                "Name",
+                "Type");
     }
 
     public void onDelete() {
@@ -88,7 +92,17 @@ public class ApprovedAnimalsCropsController {
     public void onAdd() {
         FarmItem tba = new FarmItem(approveName.getText(), true, typeMenu.getValue());
         f.insertFarmItem(tba);
+    }
 
+    public void onSearch() {
+        if (searchTerm.getText() != null && !searchMenu.getSelectionModel().isEmpty()) {
+            nameCol.setCellValueFactory(new PropertyValueFactory<FarmItem, String>("name"));
+            typeCol.setCellValueFactory(new PropertyValueFactory<FarmItem, String>("itemTypeStr"));
+
+            FarmItemDAOImpl farmItemDAO = new FarmItemDAOImpl();
+
+            approvedItems.getItems().setAll(farmItemDAO.findApprovedOrdered("Name ASC", searchMenu.getValue(), searchTerm.getText()));
+        }
     }
 }
 

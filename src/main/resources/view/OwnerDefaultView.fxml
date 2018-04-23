@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.OwnerDefaultViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.OwnerDefaultViewController">
    <top>
-      <Label text="Welcome Owner" BorderPane.alignment="CENTER" fx:id="ownerName">
+      <Label fx:id="ownerName" text="Welcome Owner" BorderPane.alignment="CENTER">
          <font>
             <Font size="38.0" />
          </font>
@@ -27,19 +27,19 @@
                <children>
                   <ComboBox fx:id="searchMenu" prefWidth="135.0" promptText="Search by..." />
                   <TextField fx:id="searchTerm" prefHeight="17.0" prefWidth="130.0" promptText="Search Term" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Search Properties" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" prefHeight="25.0" prefWidth="135.0" text="Search Properties" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
                <children>
-                  <Button fx:id="manageButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Manage Property" onAction="#onManageProperty"/>
-                  <Button fx:id="addPropertyButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Add Property" onAction="#onAddProperty"/>
-                  <Button fx:id="ViewOtherPropButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="View Other Properties" onAction="#onViewOthers"/>
+                  <Button fx:id="manageButton" mnemonicParsing="false" onAction="#onManageProperty" prefHeight="25.0" prefWidth="135.0" text="Manage Property" />
+                  <Button fx:id="addPropertyButton" mnemonicParsing="false" onAction="#onAddProperty" prefHeight="25.0" prefWidth="135.0" text="Add Property" />
+                  <Button fx:id="ViewOtherPropButton" mnemonicParsing="false" onAction="#onViewOthers" prefHeight="25.0" prefWidth="135.0" text="View Other Properties" />
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="135.0" spacing="5.0">
                <children>
-                  <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="135.0" text="Log Out" onAction="#onLogOut"/>
+                  <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#onLogOut" prefWidth="135.0" text="Log Out" />
                </children>
                <HBox.margin>
                   <Insets bottom="7.0" />
