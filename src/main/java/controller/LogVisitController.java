@@ -76,7 +76,8 @@ public class LogVisitController {
     @FXML
     private Rating ratingTool;
 
-    private Property property = null;
+    private Property property;
+    private PropertyView propertyView;
     private UserDAOImpl users = new UserDAOImpl();
     private VisitDAOImpl visits = new VisitDAOImpl();
     private PropertyDAOImpl p = new PropertyDAOImpl();
@@ -135,43 +136,44 @@ public class LogVisitController {
     }
 
     @FXML
-    public void setProperty(PropertyView property) {
+    public void setProperty(PropertyView propertyView) {
+        this.propertyView = propertyView;
         String pubtext = "No";
         String comtext = "No";
-        if (property.getIsCommercial()) {
+        if (propertyView.getIsCommercial()) {
             comtext = "Yes";
         }
 
-        if (property.getIsPublic()) {
+        if (propertyView.getIsPublic()) {
             pubtext = "Yes";
         }
-        List<Visit> v = visits.findByProperty(property.getId());
-        name.setText(property.getName());
-        Property x = p.findByID(property.getId());
+        List<Visit> v = visits.findByProperty(propertyView.getId());
+        name.setText(propertyView.getName());
+        Property x = p.findByID(propertyView.getId());
         ownerName.setText(x.getOwnerUsername());
         User owner = users.findByUsername(x.getOwnerUsername());
         ownerEmail.setText(owner.getEmail());
-        city.setText(property.getCity());
-        zip.setText(String.valueOf(property.getZipcode()));
-        size.setText("" + property.getSize());
-        type.setText(property.getPropertyType().toString());
+        city.setText(propertyView.getCity());
+        zip.setText(String.valueOf(propertyView.getZipcode()));
+        size.setText("" + propertyView.getSize());
+        type.setText(propertyView.getPropertyType().toString());
         isPublic.setText(pubtext);
         isCommercial.setText(comtext);
-        id.setText("" + property.getId());
+        id.setText("" + propertyView.getId());
         numVisits.setText("" + v.size());
 
         List<Has> animals;
         List<Has> crops;
         String cropL = "";
         String animalL = "";
-        if (property.getPropertyType() == Property.PropertyType.FARM) {
-            animals = has.findAnimalsByProperty(Integer.toString(property.getId()));
+        if (propertyView.getPropertyType() == Property.PropertyType.FARM) {
+            animals = has.findAnimalsByProperty(Integer.toString(propertyView.getId()));
             for (Has f : animals) {
                 animalL = animalL.concat(f.getItemName() + ",");
             }
             animalList.setText(animalL);
         }
-        crops = has.findCropsByProperty(Integer.toString(property.getId()));
+        crops = has.findCropsByProperty(Integer.toString(propertyView.getId()));
         for (Has f: crops) {
             cropL = cropL.concat(f.getItemName() + ",");
         }
@@ -193,10 +195,7 @@ public class LogVisitController {
 
     public void onLog() {
         long time = new Date().getTime();
-
-        System.out.println(property.getId());
-
-        Visit newVisit = new Visit(u.getUsername(), property.getId(),new Timestamp(time),(int)ratingTool.getRating());
+        Visit newVisit = new Visit(u.getUsername(), propertyView.getId(),null,(int)ratingTool.getRating());
         visits.insertVisit(newVisit);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/UnlogVisit.fxml"));
@@ -208,7 +207,7 @@ public class LogVisitController {
             System.out.println(e.getMessage());
         }
         UnlogVisitController controller = loader.<UnlogVisitController>getController();
-        controller.setProperty(property);
+        controller.setProperty(propertyView);
         controller.loadUser(u);
         controller.loadVisit(newVisit);
         stage.show();

@@ -12,10 +12,7 @@ import main.java.db.HasDAOImpl;
 import main.java.db.PropertyDAOImpl;
 import main.java.db.UserDAOImpl;
 import main.java.db.VisitDAOImpl;
-import main.java.model.Has;
-import main.java.model.Property;
-import main.java.model.User;
-import main.java.model.Visit;
+import main.java.model.*;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -82,7 +79,8 @@ public class UnlogVisitController {
         backButton.getScene().getWindow().hide();
     }
 
-    private Property property = null;
+    private Property property;
+    private PropertyView propertyView;
     private UserDAOImpl users = new UserDAOImpl();
     private VisitDAOImpl visits = new VisitDAOImpl();
     private PropertyDAOImpl p = new PropertyDAOImpl();
@@ -97,7 +95,7 @@ public class UnlogVisitController {
 
     @FXML
     public void setProperty(Property p) {
-        property = p;
+        this.property = p;
         String pubtext = "No";
         String comtext = "No";
         if (property.getIsCommercial()) {
@@ -141,6 +139,52 @@ public class UnlogVisitController {
     }
 
     @FXML
+    public void setProperty(PropertyView propertyView) {
+        this.propertyView = propertyView;
+        String pubtext = "No";
+        String comtext = "No";
+        if (propertyView.getIsCommercial()) {
+            comtext = "Yes";
+        }
+
+        if (propertyView.getIsPublic()) {
+            pubtext = "Yes";
+        }
+        List<Visit> v = visits.findByProperty(propertyView.getId());
+        name.setText(propertyView.getName());
+        Property x = p.findByID(propertyView.getId());
+        ownerName.setText(x.getOwnerUsername());
+        User owner = users.findByUsername(x.getOwnerUsername());
+        ownerEmail.setText(owner.getEmail());
+        city.setText(propertyView.getCity());
+        zip.setText(String.valueOf(propertyView.getZipcode()));
+        size.setText("" + propertyView.getSize());
+        type.setText(propertyView.getPropertyType().toString());
+        isPublic.setText(pubtext);
+        isCommercial.setText(comtext);
+        id.setText("" + propertyView.getId());
+        numVisits.setText("" + v.size());
+
+        List<Has> animals;
+        List<Has> crops;
+        String cropL = "";
+        String animalL = "";
+        if (propertyView.getPropertyType() == Property.PropertyType.FARM) {
+            animals = has.findAnimalsByProperty(Integer.toString(propertyView.getId()));
+            for (Has f : animals) {
+                animalL = animalL.concat(f.getItemName() + ",");
+            }
+            animalList.setText(animalL);
+        }
+        crops = has.findCropsByProperty(Integer.toString(propertyView.getId()));
+        for (Has f: crops) {
+            cropL = cropL.concat(f.getItemName() + ",");
+        }
+        cropList.setText(cropL);
+
+    }
+
+    @FXML
     public void initialize() {
 
 
@@ -166,7 +210,7 @@ public class UnlogVisitController {
             System.out.println(e.getMessage());
         }
         LogVisitController controller = loader.<LogVisitController>getController();
-        controller.setProperty(property);
+        controller.setProperty(propertyView);
         controller.loadUser(u);
         stage.show();
     }
