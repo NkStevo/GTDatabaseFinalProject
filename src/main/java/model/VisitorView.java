@@ -20,7 +20,7 @@ public class VisitorView {
         this.loggedVisits = loggedVisits;
     }
 
-    public String getEm7ail() {
+    public String getEmail() {
         return email;
     }
 
