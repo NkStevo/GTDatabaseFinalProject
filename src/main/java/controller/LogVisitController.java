@@ -147,9 +147,10 @@ public class LogVisitController {
         }
         List<Visit> v = visits.findByProperty(property.getId());
         name.setText(property.getName());
-        ownerName.setText(u.getUsername());
-        ownerEmail.setText(u.getEmail());
-        address.setText(property.getStreet());
+        Property x = p.findByID(property.getId());
+        ownerName.setText(x.getOwnerUsername());
+        User owner = users.findByUsername(x.getOwnerUsername());
+        ownerEmail.setText(owner.getEmail());
         city.setText(property.getCity());
         zip.setText(String.valueOf(property.getZipcode()));
         size.setText("" + property.getSize());
