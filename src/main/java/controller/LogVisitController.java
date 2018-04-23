@@ -88,6 +88,7 @@ public class LogVisitController {
         title.setText(name + " Details");
     }
 
+
     @FXML
     public void setProperty(Property p) {
         property = p;
@@ -133,6 +134,49 @@ public class LogVisitController {
 
     }
 
+    @FXML
+    public void setProperty(PropertyView property) {
+        String pubtext = "No";
+        String comtext = "No";
+        if (property.getIsCommercial()) {
+            comtext = "Yes";
+        }
+
+        if (property.getIsPublic()) {
+            pubtext = "Yes";
+        }
+        List<Visit> v = visits.findByProperty(property.getId());
+        name.setText(property.getName());
+        ownerName.setText(u.getUsername());
+        ownerEmail.setText(u.getEmail());
+        address.setText(property.getStreet());
+        city.setText(property.getCity());
+        zip.setText(String.valueOf(property.getZipcode()));
+        size.setText("" + property.getSize());
+        type.setText(property.getPropertyType().toString());
+        isPublic.setText(pubtext);
+        isCommercial.setText(comtext);
+        id.setText("" + property.getId());
+        numVisits.setText("" + v.size());
+
+        List<Has> animals;
+        List<Has> crops;
+        String cropL = "";
+        String animalL = "";
+        if (property.getPropertyType() == Property.PropertyType.FARM) {
+            animals = has.findAnimalsByProperty(Integer.toString(property.getId()));
+            for (Has f : animals) {
+                animalL = animalL.concat(f.getItemName() + ",");
+            }
+            animalList.setText(animalL);
+        }
+        crops = has.findCropsByProperty(Integer.toString(property.getId()));
+        for (Has f: crops) {
+            cropL = cropL.concat(f.getItemName() + ",");
+        }
+        cropList.setText(cropL);
+
+    }
     @FXML
     public void initialize() {
 

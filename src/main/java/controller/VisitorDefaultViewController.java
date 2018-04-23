@@ -81,7 +81,6 @@ public class VisitorDefaultViewController {
     @FXML
     private TableColumn<PropertyView, Integer> avgRatingCol;
 
-    public Property p = new Property(0, "Atwood Street Garden", 1.0f, false, true, "Atwood Street SW", "Atlanta",30308, Property.PropertyType.GARDEN, "gardenowner");
     private User user;
 
 
@@ -104,10 +103,11 @@ public class VisitorDefaultViewController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        //p = (Property)validProps.getSelectionModel().getSelectedItem();
         LogVisitController vc = loader.<LogVisitController>getController();
+        PropertyView p = validProperties.getSelectionModel().getSelectedItem();
         vc.setTitle(p.getName());
         vc.setProperty(p);
+        vc.loadUser(this.user);
         stage.show();
     }
 
