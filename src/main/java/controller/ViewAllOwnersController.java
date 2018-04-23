@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import main.java.db.OwnerViewServiceImpl;
+import main.java.db.UserDAOImpl;
 import main.java.model.OwnerView;
 import main.java.model.User;
 
@@ -45,6 +46,7 @@ public class ViewAllOwnersController {
     private Button searchButton;
 
     private User user;
+    UserDAOImpl u = new UserDAOImpl();
 
     public void onBack() {
         backButton.getScene().getWindow().hide();
@@ -62,6 +64,12 @@ public class ViewAllOwnersController {
         OwnerViewServiceImpl ownerViewService = new OwnerViewServiceImpl();
 
         allOwners.getItems().setAll(ownerViewService.findAllOrdered("Username ASC", null, null));
+    }
+
+    public void onDelete() {
+        OwnerView owner = allOwners.getSelectionModel().getSelectedItem();
+        User tbd = u.findByEmail(owner.getEmail());
+        u.deleteUser(tbd);
     }
 }
 
