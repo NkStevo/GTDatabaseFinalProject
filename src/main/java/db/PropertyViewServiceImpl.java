@@ -43,7 +43,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
             resultSet = preStatement.executeQuery();
 
             while(resultSet.next()) {
-                properties.add(this.getPropertyViewFromResultSet(resultSet, true));
+                properties.add(this.getPropertyViewFromResultSet(resultSet, true, false));
             }
 
             return properties;
@@ -70,13 +70,13 @@ public class PropertyViewServiceImpl implements PropertyViewService {
 
             if (termLike != null) {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
-                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating " +
+                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating, P.ApprovedBy " +
                         "FROM Property AS P, VISIT_SUMMARY AS V WHERE P.ID = V.PropertyID AND " +
                         "P.ApprovedBy IS NOT NULL AND" + searchTerm + " LIKE %" + termLike + "% ORDER BY " +
                         orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
-                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating " +
+                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating, P.ApprovedBy " +
                         "FROM Property AS P, VISIT_SUMMARY AS V WHERE P.ID = V.PropertyID AND " +
                         "P.ApprovedBy IS NOT NULL ORDER BY " + orderByColumns);
             }
@@ -84,7 +84,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
             resultSet = preStatement.executeQuery();
 
             while(resultSet.next()) {
-                properties.add(this.getPropertyViewFromResultSet(resultSet, false));
+                properties.add(this.getPropertyViewFromResultSet(resultSet, false, true));
             }
 
             return properties;
@@ -112,13 +112,13 @@ public class PropertyViewServiceImpl implements PropertyViewService {
 
             if (termLike != null) {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
-                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating " +
+                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating, P.ApprovedBy " +
                         "FROM Property AS P, VISIT_SUMMARY AS V WHERE P.ID = V.PropertyID AND " +
                         "P.ApprovedBy IS NOT NULL AND Owner!=?" + searchTerm + " LIKE %" + termLike + "% ORDER BY " +
                         orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT P.Name, P.Street, P.City, P.Zip, P.Size, " +
-                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating " +
+                        "P.PropertyType, P.isPublic, P.isCommercial, P.ID, V.Visits, V.Avg_Rating, P.ApprovedBy " +
                         "FROM Property AS P, VISIT_SUMMARY AS V WHERE P.ID = V.PropertyID AND " +
                         "P.ApprovedBy IS NOT NULL AND Owner!=? ORDER BY " + orderByColumns);
             }
@@ -127,7 +127,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
             resultSet = preStatement.executeQuery();
 
             while(resultSet.next()) {
-                properties.add(this.getPropertyViewFromResultSet(resultSet, false));
+                properties.add(this.getPropertyViewFromResultSet(resultSet, false, false));
             }
 
             return properties;
@@ -142,7 +142,7 @@ public class PropertyViewServiceImpl implements PropertyViewService {
         return null;
     }
 
-    private PropertyView getPropertyViewFromResultSet(ResultSet resultSet, boolean isValidShown) throws SQLException {
+    private PropertyView getPropertyViewFromResultSet(ResultSet resultSet, boolean isValidShown, boolean isApproverShown) throws SQLException {
         int id = resultSet.getInt("ID");
         String name = resultSet.getString("Name");
         float size = resultSet.getFloat("Size");
@@ -154,6 +154,8 @@ public class PropertyViewServiceImpl implements PropertyViewService {
         Property.PropertyType propertyType = Property.PropertyType.valueOf(resultSet.getString(
                 "PropertyType"));
         boolean isValid;
+        String approver;
+        String owner;
 
         if (isValidShown) {
             isValid = resultSet.getBoolean("isValid");
@@ -161,9 +163,15 @@ public class PropertyViewServiceImpl implements PropertyViewService {
             isValid = true;
         }
 
+        if (isApproverShown) {
+            approver = resultSet.getString("ApprovedBy");
+        } else {
+            approver = "";
+        }
+
         int visits = resultSet.getInt("Visits");
         int averageRating = resultSet.getInt("Avg_Rating");
 
-        return new PropertyView(id, name, size, isCommercial, isPublic, street, city, zipcode, propertyType, isValid, visits, averageRating);
+        return new PropertyView(id, name, size, isCommercial, isPublic, street, city, zipcode, propertyType, isValid, visits, averageRating, approver);
     }
 }

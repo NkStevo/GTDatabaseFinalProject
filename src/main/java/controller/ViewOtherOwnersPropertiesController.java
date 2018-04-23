@@ -100,7 +100,7 @@ public class ViewOtherOwnersPropertiesController {
     }
 
     public void loadProperties() {
-        nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("name"));
         addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
         cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));
         zipCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("zipcode"));

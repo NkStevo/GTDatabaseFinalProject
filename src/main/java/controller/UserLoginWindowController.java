@@ -65,6 +65,7 @@ public class UserLoginWindowController {
                             System.out.println(e.getMessage());
                         }
                         AdminDefaultViewController adc = loader.<AdminDefaultViewController>getController();
+                        adc.loadUser(user);
                         adc.setTitle(me.getUsername());
                         stage.show();
                         break;

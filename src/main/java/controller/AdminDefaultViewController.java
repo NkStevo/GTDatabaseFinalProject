@@ -39,6 +39,8 @@ public class AdminDefaultViewController {
     @FXML
     private Button logOutButton;
 
+    private User user;
+
     @FXML
     public void setTitle(String name) {
         title.setText("Welcome " + name);
@@ -73,8 +75,16 @@ public class AdminDefaultViewController {
 
     public void onConfirmedProperties() {
         Parent root = null;
+        FXMLLoader loader;
+        ConfirmedPropertiesController nextController;
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/ConfirmedProperties.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/main/resources/view/ConfirmedProperties.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+            nextController.loadUser(this.user);
+            nextController.loadProperties();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -87,8 +97,15 @@ public class AdminDefaultViewController {
 
     public void onUnconfirmedProperties() {
         Parent root = null;
+        FXMLLoader loader;
+        UnconfirmedPropertiesController nextController;
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/UnconfirmedProperties.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/main/resources/view/UnconfirmedProperties.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+            nextController.loadUser(this.user);
+            nextController.loadProperties();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -124,6 +141,10 @@ public class AdminDefaultViewController {
         stage.setTitle("Pending Animals and Crops");
         stage.setScene(new Scene(root, 750, 600));
         stage.show();
+    }
+
+    public void loadUser(User user) {
+        this.user = user;
     }
 
     public void onLogout() {

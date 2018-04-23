@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.ConfirmedPropertiesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.ConfirmedPropertiesController">
    <top>
       <Label fx:id="title" text="Confirmed Properties" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
@@ -32,7 +32,6 @@
             <TableColumn fx:id="publicCol" prefWidth="60.0" text="Public" />
             <TableColumn fx:id="commercialCol" prefWidth="75.0" text="Commercial" />
             <TableColumn fx:id="idCol" prefWidth="60.0" text="ID" />
-            <TableColumn fx:id="ownerCol" prefWidth="75.0" text="Owner" />
             <TableColumn fx:id="verifiedCol" prefWidth="75.0" text="Verified by" />
             <TableColumn fx:id="avgRatingCol" prefWidth="75.0" text="Avg. Rating" />
         </columns>
@@ -53,7 +52,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="manageButton" minHeight="50.0" mnemonicParsing="false" prefWidth="125.0" text="Manage Property Selected" textAlignment="CENTER" wrapText="true" onAction="#onManageProperty">
+                  <Button fx:id="manageButton" minHeight="50.0" mnemonicParsing="false" onAction="#onManageProperty" prefWidth="125.0" text="Manage Property Selected" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -62,7 +61,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="125.0" text="Back" onAction="#onBack">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBack" prefWidth="125.0" text="Back">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

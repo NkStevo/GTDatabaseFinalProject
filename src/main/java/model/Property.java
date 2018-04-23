@@ -63,7 +63,7 @@ public class Property {
         this.size = size;
     }
 
-    public boolean isCommercial() {
+    public boolean getIsCommercial() {
         return isCommercial;
     }
 
@@ -71,7 +71,7 @@ public class Property {
         isCommercial = commercial;
     }
 
-    public boolean isPublic() {
+    public boolean getIsPublic() {
         return isPublic;
     }
 

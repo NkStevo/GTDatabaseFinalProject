@@ -10,7 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import main.java.db.PropertyViewServiceImpl;
+import main.java.model.PropertyView;
+import main.java.model.User;
 
 import java.io.IOException;
 
@@ -20,43 +24,40 @@ public class ConfirmedPropertiesController {
     private Label title;
 
     @FXML
-    private TableView<?> confirmedProperties;
+    private TableView<PropertyView> confirmedProperties;
 
     @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<PropertyView, String> nameCol;
 
     @FXML
-    private TableColumn<?, ?> addressCol;
+    private TableColumn<PropertyView, String> addressCol;
 
     @FXML
-    private TableColumn<?, ?> cityCol;
+    private TableColumn<PropertyView, String> cityCol;
 
     @FXML
-    private TableColumn<?, ?> zipCol;
+    private TableColumn<PropertyView, Integer> zipCol;
 
     @FXML
-    private TableColumn<?, ?> sizeCol;
+    private TableColumn<PropertyView, Float> sizeCol;
 
     @FXML
-    private TableColumn<?, ?> typeCol;
+    private TableColumn<PropertyView, String> typeCol;
 
     @FXML
-    private TableColumn<?, ?> publicCol;
+    private TableColumn<PropertyView, Boolean> publicCol;
 
     @FXML
-    private TableColumn<?, ?> commercialCol;
+    private TableColumn<PropertyView, Boolean> commercialCol;
 
     @FXML
-    private TableColumn<?, ?> idCol;
+    private TableColumn<PropertyView, Integer> idCol;
 
     @FXML
-    private TableColumn<?, ?> ownerCol;
+    private TableColumn<PropertyView, String> verifiedCol;
 
     @FXML
-    private TableColumn<?, ?> verifiedCol;
-
-    @FXML
-    private TableColumn<?, ?> avgRatingCol;
+    private TableColumn<PropertyView, Integer> avgRatingCol;
 
     @FXML
     private ComboBox<?> searchMenu;
@@ -72,6 +73,8 @@ public class ConfirmedPropertiesController {
 
     @FXML
     private Button backButton;
+
+    private User user;
 
     public void onBack() {
         backButton.getScene().getWindow().hide();
@@ -90,5 +93,26 @@ public class ConfirmedPropertiesController {
         stage.show();
     }
 
+    public void loadUser(User user) {
+        this.user = user;
+    }
+
+    public void loadProperties() {
+        nameCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("name"));
+        addressCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("street"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("city"));
+        zipCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("zipcode"));
+        sizeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Float>("size"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("propertyType"));
+        publicCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isPublic"));
+        commercialCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Boolean>("isCommercial"));
+        idCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("id"));
+        verifiedCol.setCellValueFactory(new PropertyValueFactory<PropertyView, String>("approverUsername"));
+        avgRatingCol.setCellValueFactory(new PropertyValueFactory<PropertyView, Integer>("averageRating"));
+
+        PropertyViewServiceImpl propertyViewService = new PropertyViewServiceImpl();
+
+        confirmedProperties.getItems().setAll(propertyViewService.findAllConfirmedOrdered("Name ASC", null, null));
+    }
 }
 

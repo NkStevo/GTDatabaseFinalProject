@@ -24,7 +24,7 @@ public class FarmItem {
         this.name = name;
     }
 
-    public boolean isApproved() {
+    public boolean getIsApproved() {
         return isApproved;
     }
 

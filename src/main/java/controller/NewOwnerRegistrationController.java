@@ -103,7 +103,7 @@ public class NewOwnerRegistrationController {
     private void fillGardenBox(List<FarmItem> farmItems) {
         List<String> crops = new ArrayList<>();
         for (int i = 0; i < farmItems.size(); i++) {
-            if (farmItems.get(i).getItemType() == FarmItem.FarmItemType.VEGETABLE || farmItems.get(i).getItemType() == FarmItem.FarmItemType.FLOWER && farmItems.get(i).isApproved() ) {
+            if (farmItems.get(i).getItemType() == FarmItem.FarmItemType.VEGETABLE || farmItems.get(i).getItemType() == FarmItem.FarmItemType.FLOWER && farmItems.get(i).getIsApproved() ) {
                 crops.add(farmItems.get(i).getName());
             }
         }
@@ -116,7 +116,7 @@ public class NewOwnerRegistrationController {
     private void fillCropBox(List<FarmItem> farmItems) {
         List<String> crops = new ArrayList<>();
         for (int i = 0; i < farmItems.size(); i++) {
-            if (farmItems.get(i).getItemType() != FarmItem.FarmItemType.ANIMAL && farmItems.get(i).isApproved()) {
+            if (farmItems.get(i).getItemType() != FarmItem.FarmItemType.ANIMAL && farmItems.get(i).getIsApproved()) {
                 crops.add(farmItems.get(i).getName());
             }
         }
@@ -130,7 +130,7 @@ public class NewOwnerRegistrationController {
     private void fillOrchardBox(List<FarmItem> farmItems) {
         List<String> crops = new ArrayList<>();
         for (int i = 0; i < farmItems.size(); i++) {
-            if (farmItems.get(i).getItemType() == FarmItem.FarmItemType.FRUIT || farmItems.get(i).getItemType() == FarmItem.FarmItemType.NUT  && farmItems.get(i).isApproved()) {
+            if (farmItems.get(i).getItemType() == FarmItem.FarmItemType.FRUIT || farmItems.get(i).getItemType() == FarmItem.FarmItemType.NUT  && farmItems.get(i).getIsApproved()) {
                 crops.add(farmItems.get(i).getName());
             }
         }
@@ -145,7 +145,7 @@ public class NewOwnerRegistrationController {
     private void fillAnimalBox(List<FarmItem> farmItems) {
         List<String> animals = new ArrayList<>();
         for (int i = 0; i < farmItems.size(); i++) {
-            if (farmItems.get(i).getItemType() == FarmItem.FarmItemType.ANIMAL && farmItems.get(i).isApproved()) {
+            if (farmItems.get(i).getItemType() == FarmItem.FarmItemType.ANIMAL && farmItems.get(i).getIsApproved()) {
                 animals.add(farmItems.get(i).getName());
             }
         }

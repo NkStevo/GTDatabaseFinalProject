@@ -238,8 +238,8 @@ public class PropertyDAOImpl implements PropertyDAO {
             preStatement.setInt(1, property.getId());
             preStatement.setString(2, property.getName());
             preStatement.setFloat(3, property.getSize());
-            preStatement.setBoolean(4, property.isCommercial());
-            preStatement.setBoolean(5, property.isPublic());
+            preStatement.setBoolean(4, property.getIsCommercial());
+            preStatement.setBoolean(5, property.getIsPublic());
             preStatement.setString(6, property.getStreet());
             preStatement.setString(7, property.getCity());
             preStatement.setInt(8, property.getZipcode());
@@ -275,8 +275,8 @@ public class PropertyDAOImpl implements PropertyDAO {
             preStatement.setInt(1, property.getId());
             preStatement.setString(2, property.getName());
             preStatement.setFloat(3, property.getSize());
-            preStatement.setBoolean(4, property.isCommercial());
-            preStatement.setBoolean(5, property.isPublic());
+            preStatement.setBoolean(4, property.getIsCommercial());
+            preStatement.setBoolean(5, property.getIsPublic());
             preStatement.setString(6, property.getStreet());
             preStatement.setString(7, property.getCity());
             preStatement.setInt(8, property.getZipcode());

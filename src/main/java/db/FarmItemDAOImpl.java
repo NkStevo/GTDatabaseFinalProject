@@ -124,7 +124,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
                     "VALUES (?, ?, ?)");
 
             preStatement.setString(1, farmItem.getName());
-            preStatement.setBoolean(2, farmItem.isApproved());
+            preStatement.setBoolean(2, farmItem.getIsApproved());
             preStatement.setString(3, farmItem.getItemType().name());
 
             int flag = preStatement.executeUpdate();
@@ -153,7 +153,7 @@ public class FarmItemDAOImpl implements FarmItemDAO {
             preStatement = connection.prepareStatement("UPDATE FarmItem SET Name=?, IsApproved=?, Type=? WHERE Name=?");
 
             preStatement.setString(1, farmItem.getName());
-            preStatement.setBoolean(2, farmItem.isApproved());
+            preStatement.setBoolean(2, farmItem.getIsApproved());
             preStatement.setString(3, farmItem.getItemType().name());
             preStatement.setString(1, farmItem.getName());
 
