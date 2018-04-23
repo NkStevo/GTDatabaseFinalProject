@@ -77,7 +77,6 @@ public class AdminDefaultViewController {
         Parent root = null;
         FXMLLoader loader;
         ConfirmedPropertiesController nextController;
-
         try {
             loader = new FXMLLoader(getClass().getResource("/main/resources/view/ConfirmedProperties.fxml"));
             root = loader.load();

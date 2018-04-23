@@ -63,6 +63,8 @@ public class AddNewPropertyController {
     @FXML
     private Button cancelButton;
 
+    private User u;
+
     @FXML
     public void setTitle(String name) {
         title.setText("Add New Property: " + name);
@@ -73,6 +75,10 @@ public class AddNewPropertyController {
     public FarmItemDAOImpl im = new FarmItemDAOImpl();
     public HasDAOImpl has = new HasDAOImpl();
     public PropertyDAOImpl prop = new PropertyDAOImpl();
+
+    public void loadUser(User u) {
+        this.u = u;
+    }
 
     @FXML
     public void initialize() {
@@ -86,7 +92,6 @@ public class AddNewPropertyController {
 
 
         farmItems = im.findAll();
-
 
 
 
@@ -223,7 +228,7 @@ public class AddNewPropertyController {
         } else  {
             // Add user table
             int prop_id = getNewPropertyID();
-            Property p = new Property(prop_id, propName, ac, commercial, publ, address, city, zipcode, typeMenu.getValue(), title.getText().substring(17), null);
+            Property p = new Property(prop_id, propName, ac, commercial, publ, address, city, zipcode, typeMenu.getValue(), u.getUsername(), null);
             prop.insertProperty(p);
             if (typeMenu.getValue() == Property.PropertyType.FARM) {
                 Has anHas = new Has(prop_id, animal);

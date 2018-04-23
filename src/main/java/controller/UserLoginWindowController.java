@@ -98,6 +98,11 @@ public class UserLoginWindowController {
                         stage.show();
                         break;
                 }
+            } else {
+                Stage error = new Stage();
+                error.setTitle("Error");
+                error.show();
+                System.out.println("Incorrect Login Credentials");
             }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

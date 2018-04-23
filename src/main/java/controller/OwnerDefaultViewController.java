@@ -163,16 +163,20 @@ public class OwnerDefaultViewController {
     }
 
     public void onAddProperty() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/AddNewProperty.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Add New Property");
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader();
+        AddNewPropertyController nextController;
         try {
-            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
+            loader.setLocation(getClass().getResource("/main/resources/view/AddNewProperty.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+            nextController.loadUser(this.user);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        AddNewPropertyController add = loader.<AddNewPropertyController>getController();
-        add.setTitle(ownerName.getText().substring(7));
+        Stage stage = new Stage();
+        stage.setTitle("Add New Property");
+        stage.setScene(new Scene(root, 750, 600));
         stage.show();
     }
 
@@ -180,7 +184,6 @@ public class OwnerDefaultViewController {
         Parent root = null;
         FXMLLoader loader = new FXMLLoader();
         ViewOtherOwnersPropertiesController nextController;
-
         try {
             loader.setLocation(getClass().getResource("/main/resources/view/ViewOtherOwnersProperties.fxml"));
             root = loader.load();
@@ -198,15 +201,16 @@ public class OwnerDefaultViewController {
     }
 
     public void onManageProperty() {
-        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/OwnerManageProperties.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Manage Property");
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/OwnerManageProperties.fxml"));
+            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        Stage stage = new Stage();
-        stage.setTitle("Manage Property ");
-        stage.setScene(new Scene(root, 750, 600));
+        OwnerManagePropertiesController omp = loader.<OwnerManagePropertiesController>getController();
+        omp.setP(ownersProperties.getSelectionModel().getSelectedItem(), this.user);
         stage.show();
     }
 

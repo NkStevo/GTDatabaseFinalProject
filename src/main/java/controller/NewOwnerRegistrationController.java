@@ -270,6 +270,7 @@ public class NewOwnerRegistrationController {
                 Has crHas = new Has(prop_id, crop);
                 has.insertHas(crHas);
             }
+
             System.out.println("New User Added");
             System.out.println("New Property Added");
             registerButton.getScene().getWindow().hide();
