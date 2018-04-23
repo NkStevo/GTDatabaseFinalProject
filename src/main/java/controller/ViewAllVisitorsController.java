@@ -100,7 +100,17 @@ public class ViewAllVisitorsController {
 
             VisitorViewServiceImpl visitorViewService = new VisitorViewServiceImpl();
 
-            allVisitors.getItems().setAll(visitorViewService.findAllOrdered("Username ASC", searchMenu.getValue(), searchTerm.getText()));
+            String searchVal;
+
+            if (searchMenu.getValue().equals("Username")) {
+                searchVal = "User.Username";
+            } else if (searchMenu.getValue().equals("LoggedVisits")) {
+                searchVal = "Test.Count";
+            } else {
+                searchVal = searchMenu.getValue();
+            }
+
+            allVisitors.getItems().setAll(visitorViewService.findAllOrdered("Username ASC", searchVal, searchTerm.getText()));
         }
     }
 }
