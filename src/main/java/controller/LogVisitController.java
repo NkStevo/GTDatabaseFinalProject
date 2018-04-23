@@ -148,6 +148,7 @@ public class LogVisitController {
         List<Visit> v = visits.findByProperty(property.getId());
         name.setText(property.getName());
         Property x = p.findByID(property.getId());
+        this.setProperty(x);
         ownerName.setText(x.getOwnerUsername());
         User owner = users.findByUsername(x.getOwnerUsername());
         ownerEmail.setText(owner.getEmail());
