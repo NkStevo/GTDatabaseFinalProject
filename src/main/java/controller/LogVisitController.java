@@ -6,15 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.java.db.*;
-import main.java.model.FarmItem;
-import main.java.model.Has;
-import main.java.model.Property;
-import main.java.model.Visit;
+import main.java.model.*;
 import org.controlsfx.control.Rating;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 public class LogVisitController {
@@ -81,6 +81,7 @@ public class LogVisitController {
     private VisitDAOImpl visits = new VisitDAOImpl();
     private PropertyDAOImpl p = new PropertyDAOImpl();
     private HasDAOImpl has = new HasDAOImpl();
+    private User u;
 
     @FXML
     public void setTitle(String name) {
@@ -138,23 +139,32 @@ public class LogVisitController {
 
     }
 
+    public void loadUser(User u) {
+        this.u = u;
+    }
     public void onBack() {
         backButton.getScene().getWindow().hide();
     }
 
     public void onLog() {
-        //LOG VISIT
+        long time = new Date().getTime();
+        Visit newVisit = new Visit(u.getUsername(), property.getId(),new Timestamp(time),(int)ratingTool.getRating());
+        visits.insertVisit(newVisit);
 
-        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/UnlogVisit.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Unlog Visit");
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/UnlogVisit.fxml"));
+            stage.setScene(new Scene((Pane) loader.load(), 750, 600));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        Stage stage = new Stage();
-        stage.setTitle("Unlog Visit");
-        stage.setScene(new Scene(root, 750, 600));
+        UnlogVisitController controller = loader.<UnlogVisitController>getController();
+        controller.setProperty(property);
+        controller.loadUser(u);
+        controller.loadVisit(newVisit);
         stage.show();
     }
+
 }
 
