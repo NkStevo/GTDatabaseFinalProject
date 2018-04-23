@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.UnconfirmedPropertiesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controller.UnconfirmedPropertiesController">
    <top>
       <Label fx:id="title" text="Unconfirmed Properties" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
@@ -46,12 +46,12 @@
                <children>
                   <ComboBox fx:id="searchMenu" prefWidth="140.0" promptText="Search by..." />
                   <TextField fx:id="searchTerm" maxWidth="140.0" minWidth="100.0" prefHeight="24.0" prefWidth="140.0" promptText="Search Term" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="140.0" text="Search Properties" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" prefWidth="140.0" text="Search Properties" />
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="manageButton" minHeight="50.0" mnemonicParsing="false" prefWidth="125.0" text="Manage Property Selected" textAlignment="CENTER" wrapText="true" onAction="#onManage">
+                  <Button fx:id="manageButton" minHeight="50.0" mnemonicParsing="false" onAction="#onManage" prefWidth="125.0" text="Manage Property Selected" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -60,7 +60,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" prefWidth="125.0" text="Back" onAction="#onBack">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBack" prefWidth="125.0" text="Back">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

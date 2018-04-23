@@ -30,7 +30,7 @@ public class OwnerViewServiceImpl implements OwnerViewService {
                 preStatement = connection.prepareStatement("Select User.Username AS Username, Email, " +
                         "Test.PropertyCount FROM User, (Select Owner, COUNT(Name) AS PropertyCount " +
                         "FROM Property GROUP BY Owner) AS Test WHERE Test.Owner = User.Username AND " + searchTerm +
-                        " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+                        " LIKE '%" + termLike + "%' ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("Select User.Username AS Username, Email, " +
                         "Test.PropertyCount FROM User, (Select Owner, COUNT(Name) AS PropertyCount " +

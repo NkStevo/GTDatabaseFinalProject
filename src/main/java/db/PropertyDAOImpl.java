@@ -146,7 +146,7 @@ public class PropertyDAOImpl implements PropertyDAO {
 
             if (termLike != null) {
                 preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy IS NULL AND " +
-                        searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
+                        searchTerm + " LIKE '%" + termLike + "%' ORDER BY " + orderByColumns);
             } else {
                 preStatement = connection.prepareStatement("SELECT * FROM Property WHERE ApprovedBy IS NULL " +
                         "ORDER BY " + orderByColumns);

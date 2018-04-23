@@ -217,7 +217,7 @@ public class UserDAOImpl implements UserDAO{
             String order = (isAscending) ? "ASC" : "DESC";
 
             if (termLike != null) {
-                preStatement = connection.prepareStatement("SELECT * FROM User WHERE UserType=? AND " + searchTerm + " LIKE %" + termLike + "% ORDER BY " + orderByColumn + " " + order);
+                preStatement = connection.prepareStatement("SELECT * FROM User WHERE UserType=? AND " + searchTerm + " LIKE '%" + termLike + "%' ORDER BY " + orderByColumn + " " + order);
             } else {
                 preStatement = connection.prepareStatement("SELECT * FROM User WHERE UserType=? ORDER BY " + orderByColumn + " " + order);
             }
