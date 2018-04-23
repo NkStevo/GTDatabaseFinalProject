@@ -43,7 +43,7 @@
                      <children>
                         <ComboBox fx:id="typeMenu" prefWidth="150.0" promptText="Type..." />
                         <TextField fx:id="approveName" maxWidth="-Infinity" prefWidth="150.0" promptText="Enter name" />
-                        <Button fx:id="approveButton" mnemonicParsing="false" prefWidth="150.0" text="Add to Approved List" />
+                        <Button fx:id="approveButton" mnemonicParsing="false" prefWidth="150.0" text="Add to Approved List" onAction="#onAdd"/>
                      </children>
                      <HBox.margin>
                         <Insets bottom="8.0" />
@@ -63,7 +63,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="125.0" text="Delete Selection" />
+                  <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="125.0" text="Delete Selection" onAction="#onDelete"/>
                   <Button fx:id="backButton" mnemonicParsing="false" prefWidth="125.0" text="Back" onAction="#onBack"/>
                </children>
             </VBox>

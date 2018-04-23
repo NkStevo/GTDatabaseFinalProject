@@ -33,6 +33,7 @@ public class PendingAnimalCropsController {
     @FXML
     private Button backButton;
     private User user;
+    FarmItemDAOImpl f = new FarmItemDAOImpl();
 
     public void onBack() {
         backButton.getScene().getWindow().hide();
@@ -49,6 +50,15 @@ public class PendingAnimalCropsController {
         FarmItemDAOImpl farmItemDAO = new FarmItemDAOImpl();
 
         pendingItems.getItems().setAll(farmItemDAO.findPendingOrdered("Name ASC"));
+    }
+
+    public void onApprove() {
+        f.insertFarmItem(new FarmItem(pendingItems.getSelectionModel().getSelectedItem().getName(), true, pendingItems.getSelectionModel().getSelectedItem().getItemType()));
+    }
+
+    public void onDelete() {
+        pendingItems.getItems().remove(pendingItems.getSelectionModel().getSelectedItem());
+
     }
 }
 
