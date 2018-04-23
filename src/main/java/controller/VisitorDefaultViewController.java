@@ -107,8 +107,8 @@ public class VisitorDefaultViewController {
         LogVisitController vc = loader.<LogVisitController>getController();
         PropertyView p = validProps.getSelectionModel().getSelectedItem();
         vc.setTitle(p.getName());
-        vc.setProperty(p);
         vc.loadUser(this.user);
+        vc.setProperty(p);
         stage.show();
     }
 
