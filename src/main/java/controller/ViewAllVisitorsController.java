@@ -7,7 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import main.java.db.*;
+import main.java.model.User;
+import main.java.model.VisitorView;
 
 public class ViewAllVisitorsController {
 
@@ -15,16 +18,16 @@ public class ViewAllVisitorsController {
     private Label title;
 
     @FXML
-    private TableView<?> allVisitors;
+    private TableView<VisitorView> allVisitors;
 
     @FXML
-    private TableColumn<?, ?> usernameCol;
+    private TableColumn<VisitorView, String> usernameCol;
 
     @FXML
-    private TableColumn<?, ?> emailCol;
+    private TableColumn<VisitorView, String> emailCol;
 
     @FXML
-    private TableColumn<?, ?> visitsCol;
+    private TableColumn<VisitorView, Integer> visitsCol;
 
     @FXML
     private Button delVisitorButton;
@@ -44,13 +47,24 @@ public class ViewAllVisitorsController {
     @FXML
     private Button searchButton;
 
-    @FXML
-    public void initialize() {
+    private User user;
 
+    public void loadUser(User user) {
+        this.user = user;
     }
 
     public void onBack() {
         backButton.getScene().getWindow().hide();
+    }
+
+    public void loadVisitors() {
+        usernameCol.setCellValueFactory(new PropertyValueFactory<VisitorView, String>("username"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<VisitorView, String>("email"));
+        visitsCol.setCellValueFactory(new PropertyValueFactory<VisitorView, Integer>("loggedVisits"));
+
+        VisitorViewServiceImpl visitorViewService = new VisitorViewServiceImpl();
+
+        allVisitors.getItems().setAll(visitorViewService.findAllOrdered("Username ASC", null, null));
     }
 }
 

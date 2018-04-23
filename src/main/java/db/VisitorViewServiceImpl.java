@@ -27,14 +27,16 @@ public class VisitorViewServiceImpl implements  VisitorViewService {
             connection = connectionPool.getConnection();
 
             if (termLike != null) {
-                preStatement = connection.prepareStatement("SELECT User.Username, User.Email, " +
-                        "COUNT(select * from Visit GROUP BY Visit.Username) AS LoggedVisits FROM User INNER JOIN " +
-                        "Visit ON User.Username = Visit.Username WHERE " + searchTerm + " LIKE %" + termLike +
+                preStatement = connection.prepareStatement("SELECT User.Username AS Username, Email, Test.Count AS LoggedVisits " +
+                        "FROM User, (SELECT Username, COUNT(Username) AS Count " +
+                        "from Visit " +
+                        "group by Visit.Username) AS Test WHERE Test.Username = User.Username AND " + searchTerm + " LIKE %" + termLike +
                         "% ORDER BY " + orderByColumns);
             } else {
-                preStatement = connection.prepareStatement("SELECT User.Username, User.Email, " +
-                        "COUNT(select * from Visit GROUP BY Visit.Username) AS LoggedVisits FROM User INNER JOIN " +
-                        "Visit ON User.Username = Visit.Username ORDER BY " + orderByColumns);
+                preStatement = connection.prepareStatement("SELECT User.Username AS Username, Email, Test.Count AS LoggedVisits " +
+                        "FROM User, (SELECT Username, COUNT(Username) AS Count " +
+                        "from Visit " +
+                        "group by Visit.Username) AS Test WHERE Test.Username = User.Username ORDER BY " + orderByColumns);
             }
 
             resultSet = preStatement.executeQuery();

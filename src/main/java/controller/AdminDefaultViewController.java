@@ -48,8 +48,16 @@ public class AdminDefaultViewController {
 
     public void onClickVisitorsList() {
         Parent root = null;
+        FXMLLoader loader;
+        ViewAllVisitorsController nextController;
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/ViewAllVisitors.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/main/resources/view/ViewAllVisitors.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+            nextController.loadUser(this.user);
+            nextController.loadVisitors();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -61,11 +69,25 @@ public class AdminDefaultViewController {
 
     public void onClickOwnersList() {
         Parent root = null;
+        FXMLLoader loader;
+        ViewAllOwnersController nextController;
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/ViewAllOwners.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/main/resources/view/ViewAllOwners.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+
+            if (nextController == null) {
+                System.out.println("TEST");
+            }
+
+            nextController.loadUser(this.user);
+            nextController.loadOwners();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
         Stage stage = new Stage();
         stage.setTitle("View Owners List");
         stage.setScene(new Scene(root, 750, 600));

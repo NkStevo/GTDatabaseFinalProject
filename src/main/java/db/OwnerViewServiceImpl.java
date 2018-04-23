@@ -27,14 +27,15 @@ public class OwnerViewServiceImpl implements OwnerViewService {
             connection = connectionPool.getConnection();
 
             if (termLike != null) {
-                preStatement = connection.prepareStatement("SELECT User.Username, User.Email, " +
-                        "count(select * from Property group by Owner) AS PropertyCount FROM Property INNER JOIN User " +
-                        "ON Property.Owner = User.Username WHERE " + searchTerm + " LIKE %" + termLike + "% ORDER BY " +
-                        orderByColumns);
+                preStatement = connection.prepareStatement("Select User.Username AS Username, Email, " +
+                        "Test.PropertyCount FROM User, (Select Owner, COUNT(Name) AS PropertyCount " +
+                        "FROM Property GROUP BY Owner) AS Test WHERE Test.Owner = User.Username AND " + searchTerm +
+                        " LIKE %" + termLike + "% ORDER BY " + orderByColumns);
             } else {
-                preStatement = connection.prepareStatement("SELECT User.Username, User.Email, " +
-                        "count(select * from Property group by Owner) AS PropertyCount FROM Property INNER JOIN User " +
-                        "ON Property.Owner = User.Username ORDER BY " + orderByColumns);
+                preStatement = connection.prepareStatement("Select User.Username AS Username, Email, " +
+                        "Test.PropertyCount FROM User, (Select Owner, COUNT(Name) AS PropertyCount " +
+                        "FROM Property GROUP BY Owner) AS Test WHERE Test.Owner = User.Username ORDER BY " +
+                        orderByColumns);
             }
 
             resultSet = preStatement.executeQuery();
