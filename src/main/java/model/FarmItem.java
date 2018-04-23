@@ -36,6 +36,8 @@ public class FarmItem {
         return itemType;
     }
 
+    public String getItemTypeStr() {return  itemType.name(); }
+
     public void setItemType(FarmItemType itemType) {
         this.itemType = itemType;
     }

@@ -7,6 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import main.java.db.FarmItemDAOImpl;
+import main.java.model.FarmItem;
+import main.java.model.User;
 
 public class ApprovedAnimalsCropsController {
 
@@ -14,13 +18,13 @@ public class ApprovedAnimalsCropsController {
     private Label title;
 
     @FXML
-    private TableView<?> approvedItems;
+    private TableView<FarmItem> approvedItems;
 
     @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<FarmItem, String> nameCol;
 
     @FXML
-    private TableColumn<?, ?> typeCol;
+    private TableColumn<FarmItem, String> typeCol;
 
     @FXML
     private ComboBox<?> typeMenu;
@@ -46,9 +50,21 @@ public class ApprovedAnimalsCropsController {
     @FXML
     private Button backButton;
 
+    private User user;
+
     public void onBack() {
         backButton.getScene().getWindow().hide();
     }
 
+    public void loadUser(User user) { this.user = user; }
+
+    public void loadFarmItems() {
+        nameCol.setCellValueFactory(new PropertyValueFactory<FarmItem, String>("name"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<FarmItem, String>("itemTypeStr"));
+
+        FarmItemDAOImpl farmItemDAO = new FarmItemDAOImpl();
+
+        approvedItems.getItems().setAll(farmItemDAO.findPendingOrdered("Name ASC"));
+    }
 }
 

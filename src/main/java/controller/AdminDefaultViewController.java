@@ -118,11 +118,20 @@ public class AdminDefaultViewController {
 
     public void onApproved() {
         Parent root = null;
+        FXMLLoader loader;
+        ApprovedAnimalsCropsController nextController;
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/ApprovedAnimalsCrops.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/main/resources/view/ApprovedAnimalsCrops.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+            nextController.loadUser(this.user);
+            nextController.loadFarmItems();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
         Stage stage = new Stage();
         stage.setTitle("Approved Animals and Crops");
         stage.setScene(new Scene(root, 750, 600));
@@ -132,11 +141,20 @@ public class AdminDefaultViewController {
 
     public void onPending() {
         Parent root = null;
+        FXMLLoader loader;
+        PendingAnimalCropsController nextController;
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/view/PendingAnimalsCrops.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/main/resources/view/PendingAnimalsCrops.fxml"));
+            root = loader.load();
+            nextController = loader.getController();
+
+            nextController.loadUser(this.user);
+            nextController.loadFarmItems();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
         Stage stage = new Stage();
         stage.setTitle("Pending Animals and Crops");
         stage.setScene(new Scene(root, 750, 600));
